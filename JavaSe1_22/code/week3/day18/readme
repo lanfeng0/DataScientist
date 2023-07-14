@@ -1,0 +1,23 @@
+输入输出
+例1.File类里的方法（获取文件信息）
+例2.File类里的方法（创建与删除文件，文件夹）
+例3.File类里的方法（判断）
+例4.File类里的方法（重命名）
+例5.File类里的方法（获取盘符及盘符属性）
+例6.File类里的方法（获取文件夹内容）
+例7.File类里的方法（文件过滤器）
+例8.File类里的方法（文件名滤器）
+例9.File类里的方法（递归列出文件夹下面所有文件及文件夹）
+例10.FileWriter类(向文件中写入数据)
+例11.FileWriter类(向文件中写入数据加入换行符)
+例12.FileReader类(读取文件中的数据)
+例13.FileReader FileWriter类(实现文件的复制）
+例14.BufferedWriter类(向实现文件写入数据）
+例15.BufferedReader类(从文件中读出数据）
+例16.BufferedReader BufferedWriter类(文件的复制）
+例17.FileOutputStream类(向实现文件写入数据）
+例18.FileInputStream类(从文件中读出数据）
+例19.FileOutputStream  FileInputStream类(实现文件的复制）
+例20.BufferedOutputStream  BufferedOutputStream类(实现文件的复制)
+例21 System的输入流System.in与输出流System.out
+例22 System的输入流
