@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.success {
+				color: green;
+
+			}
+
+			.error {
+				color: red;
+
+			}
+		</style>
+	</head>
+	<body>
+		<form action="index.html" method="post" id="loginForm">
+			<input type="text" id="username" value="" placeholder="用户名" />
+			<span id="usernameTip">提示:不为空</span><br />
+			<input type="password" id="password" value="" placeholder="密码" />
+			<span id="passwordTip">提示:长度6-12</span><br />
+			<input type="submit" value="提交按钮" />
+		</form>
+		<script type="text/javascript">
+			// 标杆
+			var usernameIsOk = false;
+			var passwordIsOk = false;
+			// 当失去焦点的时候效验用户名
+			document.getElementById("username").onblur = function() {
+				// 判断用户输入的数据是否符合用户名的规则
+				// 不为空
+				var username = this.value.trim();
+				if (username == "" || username.length == 0) {
+					document.getElementById("usernameTip").innerText = "×";
+
+					// 调用css样式1：使用style属性  DOM元素.style.样式名 = "样式值"
+					//					document.getElementById("usernameTip").style.color = "red";
+					// 调用css样式2：使用class  DOM元素.className = "样式名"
+					document.getElementById("usernameTip").className = "error";
+					usernameIsOk = false;
+				} else {
+					document.getElementById("usernameTip").innerText = "√";
+					// 调用css样式1：使用style属性  DOM元素.style.样式名 = "样式值"
+					//					document.getElementById("usernameTip").style.color = "green";
+					// 调用css样式2：使用class  DOM元素.className = "样式名"
+					document.getElementById("usernameTip").className = "success"
+					usernameIsOk = true;
+				}
+			}
+
+			// 检查密码
+			document.getElementById("password").onblur = function() {
+				// 判断用户输入的数据是否符合密码的规则
+				// 不为空,并且长度6-12
+				var password = this.value.trim();
+				if (password.length >= 6 && password.length <= 12) {
+
+					document.getElementById("passwordTip").innerText = "√";
+					// 调用css样式2：使用class  DOM元素.className = "样式名"
+					document.getElementById("passwordTip").className = "success";
+					passwordIsOk =  true;
+
+				} else {
+					document.getElementById("passwordTip").innerText = "×";
+					// 调用css样式2：使用class  DOM元素.className = "样式名"
+					document.getElementById("passwordTip").className = "error";
+					passwordIsOk = false;
+				}
+			}
+
+			// 表单验证的函数
+			document.getElementById("loginForm").onsubmit = function() {
+				if (usernameIsOk == true && passwordIsOk == true) {
+					return true;
+				}
+				return false;
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>地区选择</title>
+		<style type="text/css">
+			#area{
+				background-color: gainsboro;
+			}
+			#area li{
+				width: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="area" >
+			<span id="area-span">北京</span>
+			<ul id="area-ul" style="display: none;">
+				<li>北京</li>
+				<li>福建</li>
+				<li>广东</li>
+				<li>山东</li>
+				<li>重庆</li>
+			</ul>
+		</div>
+	</body>
+	<script type="text/javascript">
+//	1：地区列表一开始是隐藏的,当鼠标移入到地区DIV中打开列表
+//	2: 选择地区,将选中的地区加上红色背景颜色
+//	3: 选择地区,将选中的地区文本显示在span上
+    
+	document.getElementById("area").onmouseenter = function(){
+		
+		// 1.显示隐藏的地区列表
+		document.getElementById("area-ul").style.display = "block";
+		
+		// 2.获取li列表，对其绑定点击事件
+		var lis = document.getElementById("area-ul").getElementsByTagName("li");
+		for(var i = 0; i < lis.length; i++){
+			
+			lis[i].onclick = function(){
+
+				// 获取当前点中的文本，将文本赋值在指定的span元素上
+				document.getElementById("area-span").innerText = this.innerText;
+				
+				// 对当前li的所有兄弟包括自己
+				var brother = this.parentNode.children;
+				for(var i = 0; i < brother.length; i++){
+					brother[i].style.backgroundColor = "";
+				}
+				
+				// 将选中的地区加上红色背景颜色
+				this.style.backgroundColor = "red";
+			}
+		}
+	}
+	
+	document.getElementById("area").onmouseleave = function(){
+//		隐藏的地区列表
+		document.getElementById("area-ul").style.display = "none";
+	}
+	</script>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>定时器setInteval()</title>
+		<script type="text/javascript">
+			
+			// 设置定时器 setInterval(函数表达式,间隔时间),多次调用,用于每间隔指定时间就调用函数1次。
+			// 每1秒执行一次
+			// 参数为匿名函数
+			window.setInterval(function(){
+				 console.log("定时器setInterval-1");
+			},1000);
+			
+			// 函数表达式
+			var fun = function(){
+				 console.log("定时器setInterval-2");
+			}
+			// 设置定时器，每5秒调用一次fun函数表达式
+			// 参数为一个指向函数的变量
+			window.setInterval(fun,5000);
+			
+			// -----------------------------------------------------------------
+			
+			// 按钮演示开启定时器和停止定时器
+			// 函数表达式
+			var fun2 = function(){
+				 console.log("=======执行定时器setInterval======");
+			}
+			// 定时器对象
+			var timer;
+			// 开始事件
+			function startInterval(){
+				// 设置定时器
+				timer = window.setInterval(fun2,1000);
+			}
+			// 停止事件
+			function stopInterval(){
+				// 清除指定的定时器 window.clearInterval(定时器对象)
+				window.clearInterval(timer);
+			}
+		</script>
+	</head>
+	<body>
+		
+		<button id="btn-start" onclick="startInterval()">开始定时器</button>
+		<button id="btn-stop" onclick="stopInterval()">停止定时器</button>
+	</body>
+</html>

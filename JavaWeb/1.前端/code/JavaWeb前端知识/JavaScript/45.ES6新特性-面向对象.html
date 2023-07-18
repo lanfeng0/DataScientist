@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>ES6新特性:类class和面向对象</title>
+	</head>
+	<body>
+	</body>
+	<script>
+		// 7.新特性7:类class和面向对象
+		// ES5中面向对象，使用function函数创建类,构造函数
+		function Apple(color, count) {
+			// 属性
+			this.color = color;
+			this.count = count;
+			// 方法
+			this.show = function() {
+				return this.color + " " + this.count;
+			}
+		}
+		// 通过构造函数创建类的对象
+		var app1 = new Apple("小苹果", 10);
+		// 输出对象信息
+		console.log(app1); //  Apple {color: "小苹果", count: 10, show: ƒ}
+		console.log(app1.show()); // 小苹果 10
+
+        // ------------------------------------------------------------------
+		// ES6引入了class（类），让JavaScript的面向对象编程变得更加简单和易于理解。
+		class Test {
+			constructor(name, age) { // 构造函数
+				this.name = name;
+				this.age = age;
+			}
+			setName(name) { // 原型方法
+				this.name = name;
+			}
+
+			setAge(age) { // 原型方法
+				this.age = age;
+			}
+
+			show() { // 获取属性信息
+				return this.name + " " + this.age;
+			}
+			
+			static getClassName() { // 静态方法
+				return 'Test';
+			}
+		}
+
+		var t1 = new Test('Test', 123);
+		console.log(t1); //Test {name: "Test", age: 123}
+		console.log(Test.getClassName());// Test 
+		console.log(t1.show()); // Test 123
+        
+		// ES6继承
+		class NextTest extends Test { //子类继承父类所有属性和方法
+			constructor(name, age, num) {
+				super(name, age);
+				this.num = num;
+			}
+
+			setNum(num) {
+				this.num = num;
+			}
+
+		}
+
+		var n1 = new NextTest('NextText', 100, 123456789);
+		console.log(n1); //NextTest {name: "NextText", age:  100,, num: 123456789}
+	</script>
+</html>

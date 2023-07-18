@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>表单事件</title>
+	</head>
+	<body>
+		<form action="index.html" method="get"  id="form">
+			<input type="text" id="text">
+			<input type="submit" />
+		</form>
+		<script type="text/javascript">
+			// 表单form提交事件：
+			// onsubmit事件：在表单提交时触发，onsubmit 属性只适用于 <form> 元素;
+			// 当点击submit提交按钮时，会触发onsubmit 事件;
+			// 只有onsubmit 事件执行的函数返回为true的时候，才会响应form标签中的action属性,返回为false的时候,不会响应action属性。
+			document.getElementById("form").onsubmit = function(){
+				return false;
+			}
+			
+			// input失去焦点事件
+			document.getElementById("text").onblur = function(){
+				console.log("onblur失去焦点事件");
+				console.log(this.value);
+			}
+			
+		</script>
+	</body>
+</html>

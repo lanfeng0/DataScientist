@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>定时器setTimeout()</title>
+		<script type="text/javascript">
+			// 设置定时器 
+			// setTimeout(匿名函数或函数表达式,延迟时间) 一次调用，在指定的延迟时间之后调用指定的函数
+			// 3秒后弹出hello,只执行一次
+			setTimeout(function() {
+				alert("hello");
+			}, 3000);
+
+			// 使用setTimeout实现多次调用函数
+			var fun = function() {
+				console.log("hello world");
+				setTimeout(fun, 1000) //形成类似递归的效果
+			}
+			fun();
+		</script>
+	</head>
+	<body>
+
+	</body>
+</html>

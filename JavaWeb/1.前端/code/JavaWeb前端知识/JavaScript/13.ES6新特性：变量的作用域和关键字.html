@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>变量的作用域</title>
+		<script type="text/javascript">
+			// ES5版本中，javascript只有两种作用域：全局变量和函数内的局部变量
+					
+			// ES6新增的块级作用域,涉及2个新增的关键字 let const
+			{
+				var i = 100;
+				var i = 200;
+				
+				// ES6新增关键字1:let,声明变量,表示具有块级作用域,同一个作用域中不能使用相同变量名 
+				let j = 300; 
+//				let j = 300; // 报错,let或const声明的变量在同一个作用域中不能使用相同变量名
+
+				// ES6新增关键字2:const,声明常量,表示具有块级作用域,同一个作用域中不能使用相同变量名
+				const k = 200; 
+//				const k = 900; //报错,let或const声明的变量在同一个作用域中不能使用相同变量名
+
+				console.log(i); 
+				console.log(j); // let或const声明的变量仅在当前{}块中有效
+				console.log(k); // let或const声明的变量仅在当前{}块中有效
+			}
+			
+			// 块的外面访问块{}里面的声明的变量
+			console.log(i); // 正常输出,因为var声明的变量没有块级作用域的特点
+			console.log(j); // 报错  j is not defined  
+			console.log(k); // 报错  k is not defined
+			
+			// 块级作用域通常就是指 { ... }
+			// if语句/for语句/while语句/dowhile语句等
+			if(true){
+				var i = 1;
+				var i = 200;
+				const k = 200; 
+				const k = 200; 
+				let j = 300; 
+				let j = 300; 
+			}
+			
+		</script>
+	
+	</head>
+	<body>
+	</body>
+</html>

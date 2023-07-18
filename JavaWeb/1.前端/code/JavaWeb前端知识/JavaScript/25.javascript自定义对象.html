@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>js自定义对象</title>
+		<script type="text/javascript">
+			// javascript本身自带的对象
+			var s  = new String();
+			// 访问对象的属性
+			s.length;
+			// 访问对象的方法
+			s.indexOf("a");
+			
+			// javascript自定义对象
+			// 方式1： 通过new Object()
+			var obj1 = new Object();
+			// 添加属性
+			obj1.name = "陈林";
+			obj1.age  = 18;
+			// 添加方法
+			obj1.sleep = function(){
+				console.log("对象的sleep方法");
+				// 能否访问当前对象的属性
+				console.log("在方法内访问对象的属性：" + obj1.name);
+				console.log("在方法内访问对象的属性：" + this.name); // this表示当前obj1这个对象
+			}
+			obj1.eat = function(food){
+				console.log("对象的eat方法");
+				// 输出函数的参数
+				console.log("方法参数：" + food);
+			}
+			obj1.sing = function(song){
+				console.log("对象的sing方法");
+				// 输出函数的参数
+				console.log("方法参数：" + song);
+				// 返回值
+				return "唱完了~";
+			}
+			
+			// 访问属性
+			console.log(obj1.name);
+			console.log(obj1.age);
+			// 访问方法
+			obj1.sleep();
+			obj1.eat("饭");
+			var result = obj1.sing("天路");
+			console.log(result);
+			
+			
+			// 方式2： 通过字面上 
+			var obj2 = {
+				name: "陈林-2",
+				age: 18,
+				dance: function(){
+					console.log("对象的dance方法");
+				},
+				study: function(p){
+					console.log("对象的study方法,参数:" + p);
+				},
+				calc: function(a,b){
+					console.log("对象的calc方法,参数a:" + a + ",b:" + b);
+					return a+b;
+				}
+			}
+			
+			// 访问
+			// 访问属性
+			console.log(obj2.name);
+			console.log(obj2.age);
+			// 访问方法
+			obj2.dance();
+			obj2.study("JAVA");
+			var result = obj2.calc(100,200);
+			console.log(result);
+			
+			// 如何将多个对象存储到同一个集合中?
+			// 传递给后端是一个对象集合?
+			var objects = new Array();
+			// 将对象存储到集合中
+			objects.push(obj1);
+			objects.push(obj2);
+			// 输出
+			console.log(objects);
+			
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

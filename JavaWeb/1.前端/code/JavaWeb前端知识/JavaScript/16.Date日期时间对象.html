@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Date日期时间对象</title>
+		<script type="text/javascript">
+			// 创建一个日期时间对象
+			// 得到当前系统时间
+			var now = new Date();
+			console.log(now)
+			// 自定义日期时间格式
+			// 获取每一个日期时间的部分
+			var year  = now.getFullYear();
+			var month = now.getMonth() + 1; // 月份获取的返回0-11,所以+1
+			var day   = now.getDate();
+			var hour  = now.getHours();
+			var minute = now.getMinutes();
+			var second = now.getSeconds();
+			var week   = now.getDay();
+			// 拼接
+			console.log(year + "年" + month + "月" + day + "日 " + hour + ":" + minute + ":" + second +" 星期" + week);
+			
+			// 获取 1970 年 1 月 1 日至今的毫秒数
+			console.log(now.getTime());
+			
+			// 设置一个未来的日期时间
+			var end = new Date();
+			end.setFullYear(2020); 
+			end.setMonth(10-1); // 月份0-11，设置时候需要-1
+			end.setDate(1);
+			console.log(end.toLocaleString());
+			
+			var end2 = new Date(2020,10-1,2,12,0,0,0);
+			console.log(end2.toLocaleString());
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

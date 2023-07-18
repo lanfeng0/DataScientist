@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>声明变量</title>
+		<script type="text/javascript">
+//			ES5中声明变量的关键字: var  后期讲解ES6新增关键性let、const
+//		    1. var声明普通变量,语法: var 变量名 = 初始值
+			var v1;
+			v1 = 5; // 赋值
+			console.log("v1:" + v1);
+			var v2;
+			console.log("v2:" + v2); // 只声明,未赋值，输出undefined
+			var v3 = "学习";
+			console.log("v3:" + v3);
+			var v4 = 1.4;
+			console.log("v4:" + v4);
+			var v5 = true;
+			console.log("v5:" + v5);
+			var v6 = null;
+			console.log("v6:" + v6);
+			var v7 = new Date();
+			console.log("v7:" + v7);
+			var v8 = 'c';
+			// 输出每一个变量的数据类型：number string boolean undefined object
+			console.log("各变量的数据类型：" + 
+			       typeof(v1) + ","+typeof(v2) +","+typeof(v3) +","+typeof(v4) +","+typeof(v5) +","+typeof(v6) +","+typeof(v7) +","+typeof(v8) );
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

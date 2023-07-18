@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>JS引入方式</title>
+		<!--css样式-->
+		<style type="text/css">
+			body{
+				
+			}
+		</style>
+		<!--引入外部的css文件-->
+		<link rel="stylesheet" type="text/css" href=""/>
+		
+		<!--javascript脚本-->
+		<!--方式1.直接在<script></script>标签中编写javascript-->
+		<script type="text/javascript">
+//			1.弹出提示框
+			alert("hello javascript!");
+//			2.控制台输出
+			console.log("hello javascript!");
+		</script>
+		
+		<!--方式2：通过<script src=""></script>引入外部的javascript文件-->
+		<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+		
+	</head>
+	<body>	
+		<h1 style="">javascript引入方式</h1>
+		
+		<!--方式3：使用HTML元素的事件属性中调用javascript;-->
+		<button onclick="alert('弹出')">HTML元素中绑定JavaScript</button>
+		
+		
+	</body>
+</html>

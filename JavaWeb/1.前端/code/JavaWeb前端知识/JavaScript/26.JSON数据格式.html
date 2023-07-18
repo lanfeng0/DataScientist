@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>JSON数据格式</title>
+		<script type="text/javascript">
+			
+			// 1.定义JSON格式数据
+			// 1.1对象,使用{}
+			var json1= '{"name":"baby","age":18}';
+			// 1.2对象数组,使用[]
+			var json1= '[{"name":"baby","age":18},{"name":"baby","age":18}]';
+			
+			
+			// 2.JSON的解析和序列化
+			// 用JSON数据交互时，传输的数据往往是字符串类型的，这就需要JSON和字符串之间能够相互转换，
+			// JSON 通常用于与服务端交换数据。
+			// 2.1在向服务器发送数据时一般是JSON字符串。
+			// 我们可以使用 JSON.stringify(value) 方法将 JavaScript 对象转换为有效的JSON字符串。。
+			var obj = {
+				name: "XXX",
+				age : 15
+			}
+			var jsonStr = JSON.stringify(obj);
+			console.log(jsonStr);
+			
+			// 2.在接收服务器数据时一般是字符串。
+		   //  我们可以使用 JSON.parse(text) 方法将有效的JSON字符串数据解析为 JavaScript 对象。
+			var jsonStr = '{"name":"baby","age":18}';
+			var jsObj = JSON.parse(jsonStr);
+			console.log(jsObj);
+			console.log(jsObj.name);
+			console.log(jsObj.age);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

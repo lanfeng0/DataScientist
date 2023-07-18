@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>ES6新特性-对象属性缩写</title>
+	</head>
+	<body>
+	</body>
+	<script>
+		// 6.新特性6：对象属性简写
+		// 数据值
+		const name = "小明";
+		const age = 16;
+		const city = "上海";
+		// 构建一个对象
+		var student = {
+			// ES5语法
+			// 属性名:属性值,
+			name: name,
+			age: age,
+			city: city,
+			show: function() {
+				console.log("show~~");
+			}
+		}
+		// 输出对象信息
+		console.log(student); // {name: "小明", age: 16, city: "上海"}
+		student.show();
+		// 使用ES6，当属性名和外部变量名同名情况，可以直接写入变量名,更加简写
+		// 构建一个对象
+		var student = {
+			// ES6语法,此时属性名就是变量名，属性的值就是变量的值。
+			name,
+			age,
+			city,
+			show() {
+				console.log("show~~");
+			}
+		}
+		// 输出对象信息
+		console.log(student); // {name: "小明", age: 16, city: "上海"}
+		student.show();
+	</script>
+</html>

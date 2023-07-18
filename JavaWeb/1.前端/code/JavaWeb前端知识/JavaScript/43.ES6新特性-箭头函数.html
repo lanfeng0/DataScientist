@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>ES6新特性</title>
+	</head>
+	<body>
+	</body>
+	<script>
+		// 5.特性5：箭头函数
+		// 5.1常规函数表达式书写方式
+		var sum = function(x,y){
+			return x + y;
+		}
+		// 箭头函数 ()=>{} 完整写法
+		var sum = (x,y) => { 
+			return x + y;
+		}
+		
+		// 5.2某些情况简写
+		// （1）当要执行的代码块只有一条return语句时，可省略大括号和return关键字：
+		var sum = (x,y) => x + y;
+		
+		// （2）当传入的参数只有一个时，可以省略小括号：
+		var sum = function(x){
+			return x + x;
+		}
+		var sum = x => x + x;
+		
+		// （3）当不需要参数时，使用空的圆括号：
+		var sum = function(){
+			return 100 + 100;
+		}
+		var sum = ()=> 100 + 100;
+		
+		// 5.3 应用：箭头函数在回调函数中是很简洁的
+		var array = [1,5,8];
+		var result = array.map(function(x){
+			return x * x;
+		})
+		
+		var result = array.map( x => x * x);
+		console.log(result); // 1,25,64
+		
+		// 5.4 箭头函数this指向问题
+		// ES5中使用函数模拟定义一个类
+		function Apple() {
+			// 属性
+		    this.count = 1;
+			// 方法
+			this.addCount=function(){ // 外层函数
+				// 在function中，this指向的是调用该函数的对象
+				// 此处的this为调用addCount函数的对象apple
+				console.log(this.count); // 1
+				
+				window.setTimeout(function() { // 内层函数
+					// 此处的this为调用setTimeout函数的对象window,而非apple对象
+				    this.count++; // 该行代码无法获取对象app
+				    console.log('count added!');	
+				    console.log(this.count); // undefined+1=NaN
+				}, 1000);
+			}
+		} 
+		// 构造一个对象apple
+		const apple = new Apple();
+		apple.addCount();
+		
+		// ES5一般通过_this = this解决内层函数this指向问题
+		function Apple2() {
+		    this.count = 2;
+			this.addCount=function(){ // 外层函数
+				// 在function中，this指向的是调用该函数的对象
+				// 此处的this为调用addCount函数的对象apple2
+				console.log(this.count); // 2
+				// 将调用addCount函数的对象apple2指向给_this变量
+				const _this = this; 
+				// 内层函数
+				setTimeout(function() {
+				    _this.count++;
+				    console.log('count added!');
+				    console.log(_this.count); // 3
+				}, 1000);
+			}
+		} 
+		
+		const apple2 = new Apple2();
+		apple2.addCount();
+		
+		// ES6中使用箭头函数即可解决，因为在箭头函数中，this永远指向定义函数的环境。
+		function Apple3() {
+		    this.count = 3;
+			this.addCount=function(){ // 外层函数
+				// 在function中，this指向的是调用该函数的对象
+				// 此处的this为调用addCount函数的对象apple3
+				console.log(this.count); // 3			
+				// 内层函数,setTimeout()中回调函数使用箭头函数
+				// 在箭头函数中，this永远指向定义函数的环境。
+				setTimeout(()=>{
+					this.count++; // 此时this就是外层函数的this
+					console.log('count added!');
+					console.log(this.count); // 4
+				}, 1000);
+			}
+		} 
+		
+		const apple3 = new Apple3();
+		apple3.addCount();
+	</script>
+</html>

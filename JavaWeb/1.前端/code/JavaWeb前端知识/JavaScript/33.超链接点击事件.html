@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>超链接的点击事件</title>
+	</head>
+	<body>
+		<div style="height:1000px"></div>
+		
+		<!--超链接的点击事件-->
+		执行JavaScript后,仍然进行页面刷新
+		<a href="" onclick="e()">超链接的点击事件-1</a>
+		<hr />
+		
+		第一种： href="#"表示不执行href属性的跳转,执行javascript脚本,页面会回到顶部
+		<a href="#" onclick="e()">超链接的点击事件-2</a>
+		<hr />
+		
+		第二种：href="javascript:void(0)"表示不执行href属性的跳转,执行javascript脚本,页面保持当前位置
+		<a href="javascript:void(0)" onclick="e()">超链接的点击事件-3</a><hr />
+		
+	</body>
+	<script type="text/javascript">
+			function e(){
+				// 未来会进行一系列判断
+				console.log("事件中输出的内容");
+				// 跳转页面
+				// location.href = "http://www.baidu.com";
+			}
+	</script>
+</html>

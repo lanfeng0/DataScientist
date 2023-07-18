@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>数组对象</title>
+		<script type="text/javascript">
+//		    javascript中的数组其实更像集合,不定长,可以存储各种数据类型
+//			1.声明数组
+//			方式1.通过无参构造构建一个数组对象
+			var a1 = new Array();
+//			方式2.通过有参构造构建一个数组对象,初始化3个元素,后期可以继续添加元素
+			var a2 = new Array("abc","e","dddd");
+//			方式3.通过字面构建
+			var a3 = ["abc","e","dddd"];
+//			2.数组的赋值
+			a1[0] = 1;
+			a1[1] = "数据";
+			
+			a2[3] = "添加";
+//			3.数组的访问
+			console.log("访问数组的元素：" + a1[0]); // 1
+			console.log("访问数组的元素：" + a1[1]); // 数据
+			console.log("访问数组的元素：" + a1[2]); // undefined
+			
+			console.log("访问数组的元素：" + a2[3]); // 添加
+//			4.数组的长度
+			console.log("数组的长度：" + a1.length); // 2
+			
+//			5.数组的遍历方式
+			// 1. 普通for循环遍历
+			console.log("===for循环===");
+			for(var i = 0; i < a1.length; i++){
+				console.log(a1[i]);
+			}
+			
+			// 2. for..in循环遍历
+			console.log("===for..in循环===");
+			
+			for(var index in a1){ // 遍历得到的是元素的索引号
+				console.log("index:" + index +"-->" + a1[index]);
+			}
+			console.log("===forEach方法===");
+			
+			// 3.forEach方法循环遍历,表示数组中的每一个元素执行一次回调方法
+			a1.forEach(function(e){ // 参数e表示数组的中每一个元素
+				console.log(e);
+			});
+			
+			
+			// 6.数组API
+			// JavaScript的Array类中定义了一系列操的方法用于数组的操作
+			var a4 = new Array("A","B");
+			// 1.实现数组首尾端元素的压入和弹出：
+			// 压入元素：unshift ()、push()
+			a4.unshift("A");// 往首压入
+			a4.push("C"); // 往尾压入
+			console.log(a4);
+			
+			// 弹出元素：pop () 、shift ()
+			a4.shift();// 从首弹出
+			a4.pop(); // 从尾弹出
+			console.log(a4);
+			
+			// 2.实现数组的反转：reverse();
+			a4.reverse();
+			console.log(a4);
+			
+			// 3.将一个字符串按照指定的拆分符拆分成字符数组
+			var str = '2015-10-8';
+			var arr = str.split('-');
+			console.log(arr);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>字符串对象String</title>
+		<script type="text/javascript">
+			// 1.声明字符串
+			var s1 = " ABC DKGH1234 ";
+			var s2 = new String("AAAABBBCCCEEE");
+			console.log("字符串:" +  s1);
+			// 2.属性
+			console.log(s1.length);
+			
+			// 3.常见方法：和JAVA中的String api类似
+			console.log("去除首尾空格:" + s1.trim());
+			console.log("查询指定位置的字符:" + s1.charAt(6));// K
+			console.log("查询子字符串的位置:" + s1.indexOf("ABC"));// 1
+			console.log("查询子字符串的位置:" + s1.indexOf("AAAA"));// 没有找到返回-1
+			// substr(startindex,length)
+			console.log("裁剪1:" + s1.substr(1,6) ); // ABC DK
+			// substring(startindex,endindex) [1,6)
+			console.log("裁剪1:" + s1.substring(1,6));// ABC D
+			
+			// 4.切割
+			var s3 = "xs,s,m,l,xl,xxl,xxxl";
+			var arrays =  s3.split(",");
+			for (var i=0; i<arrays.length;i++) {
+				console.log(arrays[i])
+			}
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

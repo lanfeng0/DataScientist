@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>操作DOM元素</title>
+		<script type="text/javascript">
+			function func(){
+				// 1.通过ID获取HTML元素
+				var obj = document.getElementById("input-1");
+				console.log(obj);
+				
+				// 2.获取HTML元素的value属性值
+				var val = document.getElementById("input-1").value;
+				console.log(val);
+				
+				var val2 = document.getElementById("input-2").value;
+				console.log(val2);
+				
+				// 3.获取HTML元素的文本 <标签名>文本</标签名>
+				// 对象.innerText 获取文本,不识别HTML标签
+				var t =document.getElementById("div").innerText;
+				console.log(t); // div中的标题标签
+				// 对象.innerHTML 获取文本,并且可以识别HTML标签
+				var t =document.getElementById("div").innerHTML;
+				console.log(t); // <h6>div中的标题标签</h6>
+				
+				
+				// 4.明显的看出value和text的区别
+				var selectObj = document.getElementById("select");
+				// 获取下拉框选中的value值
+				console.log("下拉框选择的value值：" + selectObj.value);
+				// 获取下拉框选中的文本值
+				console.log("下拉框选择的text值：" + selectObj.options[selectObj.selectedIndex].innerText);
+			
+			}
+			
+		</script>
+	</head>
+	<body>
+		<input type="text" id="input-1" value="第一个" />
+		<input type="text" id="input-2" value="第二个" />
+		<div id="div">
+			<h6>div中的标题标签</h6>
+		</div>
+		<select name="" id="select">
+			<option value="0">跳舞</option>
+			<option value="1">唱歌</option>
+			<option value="2">爬山</option>
+		</select>
+		<br />
+		<button onclick="func()">事件触发-获取值</button>
+		
+		
+		
+		
+	</body>
+</html>

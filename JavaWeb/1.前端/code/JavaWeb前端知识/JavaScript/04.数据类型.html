@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>数据类型</title>
+		<script type="text/javascript">
+//			javascript中数据类型分为:基本类型/对象类型
+			var v1;
+			v1 = 5; 
+			console.log("v1:" + v1);
+			var v2 = 1.4;
+			console.log("v2:" + v2);
+			var v3;
+			console.log("v3:" + v3); // 只声明,未赋值，输出undefined
+			var v4 = "学习";
+			console.log("v4:" + v4);
+			var v5 = 'c';
+			console.log("v5:" + v5);
+			var v6 = true;
+			console.log("v6:" + v6);
+			
+			// 对象类型
+			var v7 = null;
+			console.log("v7:" + v7);
+			var v8 = new Date();
+			console.log("v8:" + v8);
+			// 自定义对象
+			var user = {
+				name : "小明",
+				age  : 20 
+			}
+			console.log(user); // 直接输出对象名,可以看到对象的详细信息
+			console.log("用户对象的name属性：" + user.name)
+			console.log("user:" + user); // user:object
+			
+			// 输出每一个变量的数据类型：number string boolean undefined object
+			console.log("各变量的数据类型：" 
+				+ typeof(v1) 
+				+ ","+typeof(v2) +","+typeof(v3) +","+typeof(v4) +","+typeof(v5) 
+				+","+typeof(v6) +","+typeof(v7)  +","+typeof(v8)  +","+typeof(user));
+				
+				
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

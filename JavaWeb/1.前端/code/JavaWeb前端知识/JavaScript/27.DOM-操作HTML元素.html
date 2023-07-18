@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>DOM对象-操作HTML元素</title>
+		<script type="text/javascript">
+			window.onload = function(){
+				// 获取HTML元素
+				// 方式1：通过ID获取第一个元素
+				var dom = document.getElementById("btn-1");
+				console.log(dom);
+				
+				// 方式2：通过name获取多个元素
+				// 获取同一组复选框
+				var checkboss = document.getElementsByName("chs1");
+				console.log(checkboss);
+				console.log(checkboss.length);
+				// 数组需要进行遍历，才可以对每一个DOM元素进行操作
+				checkboss.forEach(function(c){
+					console.log(c.value);
+				})
+				
+				// 方式3：通过tagname获取多个元素
+				var buttons = document.getElementsByTagName("button");
+				console.log(buttons.length);
+				// 数组需要进行遍历，才可以对每一个DOM元素进行操作
+				
+				// 方式4：通过classname获取多个元素
+				var buttonClasss = document.getElementsByClassName("c");
+				console.log(buttonClasss.length);
+				// 数组需要进行遍历，才可以对每一个DOM元素进行操作
+			
+			
+				// 操作HTML元素的属性：  
+				// 设置：   对象.属性名 = 值;
+				// 获取：   对象.属性名;
+				// 获取超链接对象
+				var a_href = document.getElementById("a").href;
+				var a_text = document.getElementById("a").innerText; // 文本
+				var a_id = document.getElementById("a").id;
+				console.log(a_href);
+				console.log(a_text);
+				console.log(a_id);
+				
+				// 操作CSS样式
+				document.getElementById("a").style.textDecoration = "none"; // 去掉下划线
+				document.getElementById("a").style.color = "red"; // 设置字体颜色
+				document.getElementById("a").className = "t"; // 调用css类样式
+			}
+		</script>
+		<style type="text/css">
+			.t{
+				border-bottom: 2px red solid;
+			}
+		</style>
+		
+	</head>
+	<body>
+		
+		<button id="btn-1">按钮1</button>
+		<button class="c">按钮2</button>
+		<button class="c">按钮3</button>
+		<button>按钮4</button>
+		<hr />
+		<input type="checkbox" name="chs1" id="chs-1" value="语文" />语文
+		<input type="checkbox" name="chs1" id="chs-2" value="数学" />数学
+		<input type="checkbox" name="chs1" id="chs-3" value="英语" />英语
+		<hr />
+		<input type="checkbox" name="chs2" id="" value="唱" />唱
+		<input type="checkbox" name="chs2" id="" value="跳" />跳
+		<input type="checkbox" name="chs2" id="" value="rap" />rap
+		
+		<hr />
+		<a href="http://www.baidu.com" id="a">超链接</a>
+		
+		<ul>
+			<li><a href=""></a></li>
+		</ul>
+		
+	</body>
+</html>

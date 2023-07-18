@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>运算符</title>
+		<script type="text/javascript">
+//			运算符:算术运算符 赋值运算符 比较运算符 逻辑运算符 三目运算符?:
+//		1.算术运算符+ - *  / % ++ -- 	
+		console.log(1 + 10);
+		var a = 10;
+		console.log(a++);
+		console.log(a);
+		var b =10;
+		console.log(++b);
+		
+//		2.赋值运算符 = += *= /= %=
+		var c = 100;
+		c += 200; // 等价于 c = c + 200
+		console.log(c);
+		
+//		3.比较运算符 > < >= <= !=  ==等于 ===高级等于
+		console.log(100>=500); // false
+		var d = 100;
+		var e = "100";
+		var f = "100";
+		console.log(d==e); // true 普通等于== 比较的是内容
+		console.log(d===e);// false 高级等于=== 除了比较内容，还比较数据类型
+		console.log(e===f); // true
+		
+//		4.逻辑运算符 &&|| !
+        console.log(1==100 && 2==2); // false
+		console.log(1==100 || 2==2); // true
+		
+		var i = 10;
+		console.log(i==20 && ++i==11); // && 短路与功能
+		console.log(i); // 10
+		var i = 10;
+		console.log(i==20 & ++i==11); // &没有短路功能
+		console.log(i); // 11 
+		
+//		5.三目运算符 表达式?成立:不成立
+		var i = 100;
+		var result = i == 300 ? 100 : 0;
+		console.log(result);// 0
+		
+		
+		// 逻辑控制语句 和java一样的
+		// 条件语句： if if..else  if..else if..else switch..case
+		// 循环语句： for while dowhile 
+		// break,continue
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

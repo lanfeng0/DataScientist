@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>模拟购物车选中状态</title>
+	</head>
+	<body>
+		<input type="checkbox" name="" id="all" value="" onclick="checkAll()"/>全选
+		<hr />
+		<input type="checkbox" name="cars" id="" value="兰博基尼"  onclick="checkOne()"/>兰博基尼
+		<input type="checkbox" name="cars" id="" value="法拉利"   onclick="checkOne()"/>法拉利
+		<input type="checkbox" name="cars" id="" value="和谐号"   onclick="checkOne()"/>和谐号
+		<input type="checkbox" name="cars" id="" value="波音747" onclick="checkOne()"/>波音747
+	</body>
+	<script type="text/javascript">
+		function checkAll(){
+			// 获取全选复选框对象
+			var all = document.getElementById("all");
+			// 获取同一组复选框
+			var cars = document.getElementsByName("cars");
+			// 遍历同一组复选框
+			for(var i = 0; i < cars.length; i++){
+				// 只要将全选复选框的checked属性值赋值给cars这一组复选框
+				cars[i].checked = all.checked;
+			}
+		}
+		function checkOne(){
+			var flag = true;
+			// 获取全选复选框对象
+			var all = document.getElementById("all");
+			// 监听cars这一组复选框的选中状态
+			var cars = document.getElementsByName("cars");
+			// 遍历同一组复选框
+			for(var i = 0; i < cars.length; i++){
+				if(!cars[i].checked){ // 没有选中
+					flag = false;
+					break;
+				}
+			}
+			// 判断标杆
+			if(flag==true){
+				all.checked = true;
+			}else{
+				all.checked = false;
+			}
+		}
+	</script>
+</html>

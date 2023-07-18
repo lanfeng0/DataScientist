@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>this</title>
+	</head>
+	<body>
+		<ul>
+			<!--当前参数this就是当前的li元素-->
+			<li onclick="e(this)">列表1</li>
+			<li onclick="e(this)">列表2</li>
+			<li onclick="e(this)">列表3</li>
+			<li onclick="e(this)">列表4</li>
+		</ul>
+		<script type="text/javascript">
+		function e(obj){
+			// 获取当前选中的li的文本
+			console.log( obj.innerText );
+		}
+		</script>
+	
+		<hr />
+		<ul id="ul-2">
+			<li>列表5</li>
+			<li>列表6</li>
+			<li>列表7</li>
+			<li>列表8</li>
+		</ul>
+		<script type="text/javascript">		
+			// 直接通过javascript对html元素绑定点击事件
+			var lis = document.getElementById("ul-2").getElementsByTagName("li"); // 获取后代元素
+			// 遍历li数组
+			for(var i = 0; i < lis.length; i++){
+				// 对每一个li绑定点击事件
+				lis[i].onclick = function(){
+					console.log(this.innerText); // this表示调用当前函数的li对象
+				}
+			}
+	</script>
+	</body>
+
+	
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>变量的作用域</title>
+		<script type="text/javascript">
+			// ES5版本中，javascript只有两种作用域：全局变量和函数内的局部变量
+			// 声明变量
+			var v1;  // 全局变量
+			v2 = 10; // 全局变量,不使用var声明称为隐式声明，必须赋初始值
+			console.log(v1);
+			console.log(v2);
+			
+			function f1(){
+				// 声明变量
+				var v3 = 9; // 局部变量,仅在函数内有效
+				v4 = 10;    // 在函数内隐式声明变量,必须赋值,该变量为全局变量
+				console.log("函数外v1：" + v1);
+				console.log("函数内v3：" + v3);
+				console.log("函数内v4：" + v4);
+			}
+			
+			// 调用函数
+			f1();
+			
+//			console.log("在函数外访问函数内v3：" + v3); // 报错,v3 is not defined，无法在其他地方访问局部变量
+			console.log("在函数外访问函数内v4：" + v4); // 成功,因为v4是全局变量
+			
+			
+			// ES6新增的块级作用域,涉及2个新增的关键字 let const
+			
+			console.log("===ES6新增的块级作用域和关键字====");
+			{
+				var i = 100;
+				var i = 200;
+				
+				// 新增关键字1:let,声明变量,表示具有块级作用域,同一个作用域中不能使用相同变量名 
+				let j = 300; // let或const声明的变量在同一个作用域中不能使用相同变量名
+//				let j = 300; // 报错
+
+				const k = 200; // let或const声明的变量在同一个作用域中不能使用相同变量名
+//				const k = 900; // 报错
+
+				console.log(i); 
+				console.log(j); // let或const声明的变量仅在当前{}块中有效
+				console.log(k); // let或const声明的变量仅在当前{}块中有效
+			}
+			
+			// 块的外面访问块{}里面的声明的变量
+			console.log(i); // 正常输出,因为var声明的变量没有块级作用域的特点
+			console.log(j); // 报错  j is not defined  
+			console.log(k); // 报错  k is not defined
+			
+		</script>
+	
+	</head>
+	<body>
+	</body>
+</html>

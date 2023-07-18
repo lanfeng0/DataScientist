@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>location对象</title>
+		
+	</head>
+	<body>
+		<button id="btn">按钮-点击跳转到其他页面</button>
+	</body>
+	<script type="text/javascript">
+	
+		document.getElementById("btn").onclick = function(){
+			// location.href  获取当前页面的URL
+			console.log(location.href);
+			
+			// location.href = "URL" 表示跳转到指定的URL
+			location.href = "index.html";
+		}
+	</script>
+</html>

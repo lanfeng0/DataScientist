@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>定时器setInteval实现时间刷新</title>
+		<script type="text/javascript">
+			// 设置定时器,每1秒执行一次
+			setInterval(function(){
+				// 将时间显示在指定HTML元素上
+				document.getElementById("datetime").innerText = new Date().toLocaleString();
+			},1000);
+		</script>
+	</head>
+	<body>
+		<div id="datetime"></div>
+	</body>
+</html>

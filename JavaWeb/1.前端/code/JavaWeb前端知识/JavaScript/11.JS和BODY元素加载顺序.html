@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>JS和BODY元素加载顺序</title>
+		<script type="text/javascript">
+			
+			// 获取html元素
+//			var t = document.getElementById("btn").innerText;
+//			console.log("t:" + t);
+			// 以上9行代码会报错，因为加载顺序的问题,找不到DOM对象
+			
+			// 方式1：通过onload事件加载，表示当页面加载完成后执行函数中的代码
+			window.onload = function(){
+				// 获取html元素
+				var t = document.getElementById("btn").innerText;
+				console.log("t:" + t);
+			}
+		</script>
+	</head>
+	<body>
+		<button id="btn">按钮</button>
+		
+		<button id="btn2">按钮2</button>
+		
+		<!--方式2：将脚本代码Dom元素加载的后面-->
+		<!--获取html元素-->
+		<script type="text/javascript">
+			var t2 = document.getElementById("btn2").innerText;
+			console.log("t2:" + t2);
+		</script>
+
+	</body>
+</html>

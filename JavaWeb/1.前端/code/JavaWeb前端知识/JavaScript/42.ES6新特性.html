@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>ES6新特性</title>
+	</head>
+	<body>
+	</body>
+	<script>
+		// 1.特性1：原有内置对象API增强
+		// 新增String方法
+		// includes(str,start)：返回布尔值，查找字符串中是否包含str返回布尔值，start可选表示从字符串哪个位置开始查找
+		// startsWith(str,start)：查找str是否在字符串开头
+		// endsWith(str,start)：查找str是否在str结尾
+		// repeat(int)接收整数参数表示将字符串重复几次
+		let str = "abc";
+		console.log(str.includes("a",1));// false
+		console.log(str.startsWith("a")); // true
+		console.log(str.endsWith("a"));// false
+		console.log(str.repeat(3));// abcabcabc
+		
+		// 2.特性2：let、const、块级作用域
+		{
+			var i = 0;
+			var i = 1;
+			let j = 0;
+			const k = 1;
+		}
+		console.log("i:" + i); // 正常输出 i = 1;
+		//console.log("j:" + j); // 报错,Uncaught ReferenceError: j is not defined
+		//console.log("k:" + k); // 报错,Uncaught ReferenceError: K is not defined
+		
+		// 3.特性3：for…of遍历
+		const arr = [1,3,4,6];
+		for(let index = 0; index < arr.length; index++){
+			console.log(arr[index]); // 输出1,3,4,6
+		}
+		for(let index in arr ){
+			console.log(arr[index]); // 输出1,3,4,6
+		}
+		for(let element of arr ){
+			console.log(element);    // 输出1,3,4,6
+		}
+		       
+	   
+	
+		// 4.特性4：函数参数默认值
+		// ES5
+		function method(name,age){
+			name = name || 'XXX';
+			age = age || 1;
+			console.log(name + ":" +  age);
+		}
+		method();// XXX:1
+		method('小明',16); // 小明:16
+		method('小明',0);  // 小明:1,参数0表示为false
+		// ES6
+		function method(name = 'XXX',age = 1){
+			console.log(name + ":" +  age);
+		}
+		method();// XXX:1
+		method('小明',16); // 小明:16
+		method('小明',0);  // 小明:0
+		
+
+	</script>
+</html>

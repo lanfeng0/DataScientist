@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>百度注册2.0+CSS</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				font-family: "微软雅黑";
+				background: url(https://passport.baidu.com/static/passpc-account/img/reg_bg_min.jpg) no-repeat;
+			}
+			a{
+    			text-decoration: none;
+    		}
+    		
+    		.tang-pass-reg a {
+   				color: #2E58FF;
+			}
+			.tang-pass-reg a:hover {
+   				text-decoration: underline;
+			}
+			.mod-new-reg-content{
+				position: absolute;
+			    right: 139px;
+			    top: 10%;
+			    width: 480px;
+			    background: rgba(255,255,255,.9);
+			    border-radius: 12px;
+			    overflow: hidden;
+			}
+			.new-reg-guide-login{
+				margin: 50px 0 22px 39px
+			}
+			 .new-reg-guide-login h3 {
+			    font-size: 36px;
+			    color: #000;
+			    padding-bottom: 4px;
+			}
+			 .new-reg-guide-login p {
+			    font-size: 14px;
+			    color: #9B9B9B;
+    		}
+    		.new-reg-guide-login a{
+    			color: #2e58ff;
+    		}
+    		.tang-pass-reg .pass-label {
+    			display: inline-block;  /*设置元素的显示方式依然是内联元素,但是拥有块的特性,可以设置宽度高度等等*/
+			    font-size: 14px;
+			    color: #333;
+			    letter-spacing: 0;
+			    text-align: right;
+			    width: 82px;
+			    height: 40px;
+			    line-height: 40px;
+			    margin-right: 15px;
+			    font-weight: 200;
+			}
+			.tang-pass-reg .pass-text-input {
+				display: inline-block;  /*设置元素的显示方式依然是内联元素,但是拥有块的特性,可以设置宽度高度等等*/
+			    padding: 11px 10px;
+			    max-height: 40px;
+			    background: #fff;
+			    border: 1px solid #E0E0E0;
+			    border-radius: 4px;
+			    font-size: 14px;
+			    width: 321px;
+			    color: #000;
+			}
+    		.tang-pass-reg .pass-text-input:hover{
+    			border-color: #bdc2cc;
+    		}
+    		.tang-pass-reg .pass-text-input-verifyCode{
+    			width: 184px;
+    			margin-right: 6px;
+    		}
+    		.tang-pass-reg input.pass-button-verifyCodeSend{
+    			display: inline-block;  /*设置元素的显示方式依然是内联元素,但是拥有块的特性,可以设置宽度高度等等*/
+    			width: 126px;
+    			height: 40px;
+			    border-radius: 4px;
+			    background: #fff;
+			    border: 1px solid #E0E0E0;
+			    font-size: 12px;
+			    color: #333;
+			    letter-spacing: 0;
+			    text-align: center;
+			    line-height: 24px;
+    		}
+    		.tang-pass-reg input.pass-button-verifyCodeSend:hover {
+			    color: #2E58FF;
+			    border: 1px solid #2E58FF;
+			    background: #fff;
+			}
+			.tang-pass-reg .pass-form-item {
+   				 margin-bottom: 40px;
+   				 /*当父标签为相对定位,子标签的绝对定时参照物就是父亲*/
+   				 position: relative;
+   		   }
+   		   .tang-pass-reg .pass-button-submit {
+			    background: #BDCEFC;
+			    border-radius: 25px;
+			    width: 399px;
+			    display: block;
+			    height: 50px;
+			    font-size: 16px;
+			    font-weight: 700;
+			    cursor: pointer;
+			    color: #fff;
+			    background-image: none;
+			    border: 0;
+				margin-top:60px ;
+				margin-bottom: 15px;
+				margin-left: 40px;
+   			 }
+   			 .tang-pass-reg .pass-button-submit:hover{
+   			 	background: #3f89ec;
+   			 }
+   			 .tang-pass-reg .pass-form-item-isAgree{
+   			 	margin-left: 41px;
+			    width: 399px;
+			    text-align: center;
+			    color: #666;
+			    font-size: 12px;
+			    margin-left: 35px;
+   			 }
+   			 .tang-pass-reg  .pass-checkbox-isAgree{
+   			 	position: relative;
+   			 	top: 2px;
+   			 }
+   			 .pass-form-item-isAgree label{
+   			 	color: #666;
+			    font-size: 12px;
+			    margin-left: 5px;
+   			 }
+   			 
+   			 .check-item-succ{
+   			 	display: inline-block;
+   			 	position: relative;
+   			 	left: -38px;
+			    top: 5px;
+			    background: url(https://passport.baidu.com/static/passpc-account/img/setpwd-success-2x.png) no-repeat;
+			    background-size: contain;
+			    width: 16px;
+			    height: 16px;
+   			 }
+   			 .check-item-error{
+   			 	font-size: 12px;
+			    color: #F55;
+			    background: 0 0;
+			    padding-left: 0;
+			    padding-top: 0;
+			    position: absolute;
+			    left: 103px;
+			    top: 43px;
+			    display: block;
+			    z-index: 1;
+   			 }
+   			 
+   			  .check-item-code-succ{
+   			 	display: inline-block;
+   			 	position: relative;
+   			 	left: -173px;
+			    top: 5px;
+			    background: url(https://passport.baidu.com/static/passpc-account/img/setpwd-success-2x.png) no-repeat;
+			    background-size: contain;
+			    width: 16px;
+			    height: 16px;
+   			 }
+		</style>
+	</head>
+
+	<body>
+		<div id="">
+			<!--头部-->
+			<div id="head">
+
+			</div>
+			<!--导航栏-->
+			<div id="nav">
+
+			</div>
+			<!--内容-->
+			<div id="content">
+				<!--注册表单-->
+				<div id="" class="mod-new-reg-content">
+					<div class="new-reg-guide-login">
+						<h3>欢迎注册</h3>
+						<p>
+							<span>已有帐号？</span>
+							<a href="" id="login_btn">登录</a>
+						</p>
+					</div>
+					<div id="" class="tang-pass-reg">
+						<form action="index.html" method="post"id="loginForm">
+							<p class="pass-form-item">
+								<label for="username" class="pass-label">用户名</label>
+								<input type="text" name="username" id="username" value="" placeholder="请设置用户名" class="pass-text-input" />
+								<span id="usernameTip"></span>
+							</p>
+							<p class="pass-form-item">
+								<label for="phone" class="pass-label">手机号</label>
+								<input type="text" name="phone" id="phone" value="" placeholder="可用于登录和找回密码"  class="pass-text-input" />
+								<span id="phoneTip"></span>
+							</p>
+							<p class="pass-form-item">
+								<label for="password" class="pass-label">密&nbsp;&nbsp;&nbsp;码</label>
+								<input type="password" name="password" id="password" value="" placeholder="请设置登录密码"  class="pass-text-input" />
+								<span id="passwordTip"></span>
+							</p>
+							<p class="pass-form-item">
+								<label for="verifyCode" class="pass-label">验证码</label>
+								<input type="text" name="verifyCode" id="verifyCode" value="" placeholder="请输入验证码"  class="pass-text-input pass-text-input-verifyCode"/>
+								<input type="button" id="getVerifyCode" value="获取验证码"  class="pass-button-verifyCodeSend" />
+								<span id="verifyCodeTip"></span>
+							</p>
+							<p >
+								<input type="submit" id="" name="" value="注册" class="pass-button-submit" />
+							</p>
+							<p class="pass-form-item pass-form-item-isAgree">
+								<input type="checkbox" name="isAgree" id="isAgree" value="isAgree" class="pass-checkbox-isAgree" />
+								<label for="isAgree">阅读并接受</label>
+								<a target="_blank" href="http://passport.baidu.com/static/passpc-account/html/protocal.html">《百度用户协议》</a>
+							    及
+							    <a target="_blank" href="http://privacy.baidu.com/mdetail?id=288">《百度隐私权保护声明》</a>
+							</p>
+						</form>
+					</div>
+				</div>
+			</div>
+			<!--尾部-->
+			<div id="footer">
+
+			</div>
+		</div>
+	</body>
+	<script>
+		// 设置一个验证标杆
+		var usernameIsOk = false;
+		var phoneIsOk = false;
+		var passwordIsOk = false;
+		var verifyCodeIsOk = false;
+		// 检查用户名
+		document.getElementById("username").onblur = function(){
+			// 获取输入的用户名
+			var username = this.value;
+			// 用户名最多1-7位
+			if(username.trim().length >= 1 && username.trim().length <= 7){
+				// 符合
+				document.getElementById("usernameTip").innerText ="";
+				document.getElementById("usernameTip").className = "check-item-succ";
+				usernameIsOk = true;
+			}else{
+				// 不符合,红色提示
+				document.getElementById("usernameTip").innerText ="用户名不能为空,且最多7位";
+				document.getElementById("usernameTip").className = "check-item-error";
+				usernameIsOk = false;
+			}
+			
+		}
+		
+		// 检查手机
+		// 检查用户名
+		document.getElementById("phone").onblur = function(){
+			// 获取输入的手机号
+			var phone = this.value;
+			// 正则表达式验证
+			// 1.定义一个判断手机号的正则表达式
+			var patten = /^(13[0-9]|14[579]|15[0-3,5-9]|16[6]|17[0135678]|18[0-9]|19[89])\d{8}$/;
+			// 2.通过正则表达式对象的test(String)进行判断
+			if(patten.test(phone)){
+				// 符合
+				document.getElementById("phoneTip").innerText ="";
+				document.getElementById("phoneTip").className = "check-item-succ";
+				phoneIsOk = true;
+			}else{
+				// 不符合,红色提示
+				document.getElementById("phoneTip").innerText ="手机格式错误";
+				document.getElementById("phoneTip").className = "check-item-error";
+				phoneIsOk = false;
+			}
+			
+		}
+		
+		// 检查密码
+		document.getElementById("password").onblur = function(){
+			// 获取输入的密码
+			var passwords = this.value;
+			// 密码6-14位,不能含空格
+			if(passwords.length >= 6 && passwords.length <= 14 && passwords.indexOf(' ') == -1){
+				// 符合
+				document.getElementById("passwordTip").innerText ="";
+				document.getElementById("passwordTip").className = "check-item-succ";
+				passwordIsOk = true;
+			}else{
+				// 不符合,红色提示
+				document.getElementById("passwordTip").innerText ="密码6-14位,且不能包含空格";
+				document.getElementById("passwordTip").className = "check-item-error";
+				passwordIsOk = false;
+			}
+		}
+		// 全局验证码
+		var code;
+		// 获取验证码 1000-9999
+		document.getElementById("getVerifyCode").onclick = function(){
+			code = parseInt( Math.random() * 9000 + 1000 );
+			console.log(code);
+		}
+		// 检查验证码
+		document.getElementById("verifyCode").onblur = function(){
+			var user_code =  this.value;
+			if(user_code == code){
+				// 符合
+				document.getElementById("verifyCodeTip").innerText ="";
+				document.getElementById("verifyCodeTip").className = "check-item-code-succ";
+				verifyCodeIsOk = true;
+			}else{
+				// 不符合,红色提示
+				document.getElementById("verifyCodeTip").innerText ="验证码错误";
+				document.getElementById("verifyCodeTip").className = "check-item-error";
+				verifyCodeIsOk = false;
+			}
+		}
+		
+		// 提交事件
+		document.getElementById("loginForm").onsubmit = function(){
+			// 效验复选框
+			var checked = document.getElementById("isAgree").checked;
+			
+			if(checked == false){
+				alert("必须接受协议!");
+			    return false;
+			}
+			
+			if(usernameIsOk && phoneIsOk && passwordIsOk && verifyCodeIsOk){
+				return true;
+			}else{
+				alert("输入有误!");
+			}
+			
+			return false;
+		}
+	</script>
+
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>ES6新特性</title>
+	</head>
+	<body>
+	</body>
+	<script>
+		// 10.特性10：Promise
+		
+		// Promise类
+		// 示例1：
+		new Promise(function (resolve, reject) {		  
+		    console.log("第一个执行");
+			var a = 1;
+			var b = 1;
+			// 需要告知状态
+			// 调用resolve 代表一切正常，reject 是出现异常时所调用的
+			if(b == 0){
+				// 告知异常,不执行then中操作，直接执行catch操作
+				reject();
+			}else{
+				// 告知正常,继续执行then中操作
+				resolve();
+			}
+		}).then(function () {
+		    console.log("第二个执行");
+		}).then(function () {
+		    console.log("第三个执行");
+		}).catch(function () {
+		    console.log("出现异常");
+		}).finally(function () {
+		    console.log("finally");
+		});
+		
+		// 示例2：
+		// resolve() 中可以放置一个参数用于向下一个 then 传递一个值，then 中的函数也可以返回一个值传递给 then。
+		// reject() 参数中一般会传递一个异常给之后的 catch 函数用于处理异常。
+		new Promise(function (resolve, reject) {
+		    console.log("第一个执行");
+			var a = 1;
+			var b = 1;
+			// 需要告知状态
+			// 调用resolve 代表一切正常，reject 是出现异常时所调用的
+			if(b == 0){
+				// 告知异常,不执行then中操作，直接执行catch操作
+				reject("除数为0");
+			}else{
+				// 告知正常,继续执行then中操作
+				resolve(a/b);
+			}
+		}).then(function (value) {
+		    console.log("第二个执行:a / b = "  +  value);
+			return "0000";
+		}).then(function (value) {
+		    console.log("第三个执行:" + value);
+		}).catch(function (err) {
+		    console.log("异常信息：" + err);
+		}).finally(function () {
+		    console.log("finally");
+		});
+		
+		
+		// 示例：分三次输出字符串，第一次间隔 1 秒，第二次间隔 3 秒，第三次间隔 4 秒
+		// 传统做法
+		setTimeout(function () {
+		    console.log("First");
+		    setTimeout(function () {
+		        console.log("Second");
+		        setTimeout(function () {
+		            console.log("Third");
+		        }, 4000);
+		    }, 3000);
+		}, 1000);
+		
+		// 这段程序实现了这个功能，但是它是用 "函数瀑布" 来实现的。可想而知，
+		// 在一个复杂的程序当中，用 "函数瀑布" 实现的程序无论是维护还是异常处理都是一件特别繁琐的事情，而且会让缩进格式变得非常冗赘。
+		
+		// Promise做法
+		new Promise(function (resolve, reject) {
+		    setTimeout(function () {
+		        console.log("First");
+		        resolve();
+		    }, 1000);
+		}).then(function () {	   
+		        setTimeout(function () {
+		            console.log("Second");
+		        }, 3000);
+		}).then(function () {
+		    setTimeout(function () {
+		        console.log("Third");
+		    }, 4000);
+		});
+	</script>
+</html>

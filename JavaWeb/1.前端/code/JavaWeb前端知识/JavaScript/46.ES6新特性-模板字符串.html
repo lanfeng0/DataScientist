@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>ES6新特性</title>
+	</head>
+	<body>
+	</body>
+	<script>
+		// 8.新特性8：模板字符串
+		let first = "张";
+		let last = "学友";
+		// 1.字符串拼接
+		// 在ES5中字符串拼接通过【+】实现
+		var name1 = 'Your name is ' + first + ' ' + last + '.';
+		console.log(name1);
+
+		// ES6中使用反引号【``】来拼接字符串，使用【${}】来包含变量
+		var name2 = `Your name is ${first} ${last}.`
+		console.log(name2);
+		
+		// 2.多行字符串
+		// 在ES5中多行字符串通过【+】和"\n"实现
+		let str1 = "hello\n" + 
+		          "world";
+		console.log(str1);
+		
+		// ES6中使用反引号【``】来拼接多行字符串
+		let str2 = `hello
+		world`;
+		console.log(str2);
+		
+		// 9.新特性9：模块化
+	</script>
+	
+</html>

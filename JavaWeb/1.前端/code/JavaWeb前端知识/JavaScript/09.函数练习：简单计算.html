@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>简单计算</title>
+		
+	</head>
+	<script type="text/javascript">
+		function calc(){
+			// 1.获取用户输入的2个数字
+			// 通过ID获取DOM元素,获取HTML元素的属性值： 对象.属性名
+			var num1 = parseFloat(document.getElementById("num1").value); // parseFloat()表示将字符串转换成浮点数字
+			var num2 = parseFloat(document.getElementById("num2").value);
+			// 2.获取下拉框选择的值
+			var op = document.getElementById("op").value;
+			// 3.定义一个变量存储操作结果
+			var re = 0;
+			// 4.判断op操作符
+			switch (op){
+				case "+":
+					//  加法运算
+					re = num1 + num2;
+					break;
+				case "-":
+					//  加法运算
+					re = num1 - num2;
+					break;
+				case "*":
+					//  加法运算
+					re = num1 * num2;
+					break;
+				case "/":
+					//  加法运算
+					re = num1 / num2;
+					break;
+				default:
+					break;
+			}
+			// 5.将操作结果赋值给指定DOM元素
+			document.getElementById("result").value = re;
+		}
+	</script>
+	<body>
+		<input type="text" id="num1" value="" />
+		<select name="" id="op">
+			<option value="+">+</option>
+			<option value="-">-</option>
+			<option value="*">*</option>
+			<option value="/">/</option>
+		</select>
+		<input type="text" id="num2" value="" />
+		<input type="button" id="" value="=" onclick="calc()"/>
+		<input type="text" id="result" value="" />
+	</body>
+	
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>事件绑定和事件类型</title>	
+	</head>
+	<body>
+		<!--绑定事件方式1：直接在标签中通过事件属性绑定javascript函数-->
+		<button onclick="f1()">在HTML标签中直接绑定事件</button>
+		<button id="btn2">在javascript中绑定事件</button>
+		<button id="btn3">鼠标移入移出事件</button>
+		
+		<select id="select">
+			<option value="0">语文</option>
+			<option value="1">英语</option>
+		</select>
+			
+		<input type="text" id="text">
+		
+		
+	</body>
+	<script type="text/javascript">
+		// 绑定事件方式1：先声明函数，在HTML中通过事件属性调用
+		function f1(){
+			alert("事件绑定1:onclick单击事件");
+		}
+		
+		// 绑定事件方式2：直接在javascript绑定
+		// DOM元素.事件属性 = function(){}
+		document.getElementById("btn2").onclick = function(){
+			alert("事件绑定2:onclick单击事件");
+		}
+		
+		// 事件类型：
+		// 鼠标移入移出事件
+		document.getElementById("btn3").onmouseenter = function(){
+			alert("onmouseenter移入事件");
+		}
+		document.getElementById("btn3").onmouseleave = function(){
+			alert("onmouseenter移出事件");
+		}
+		// 下拉框改变事件
+		document.getElementById("select").onchange = function(){
+			console.log("select的onchange改变事件");
+			console.log(this.value);
+		}
+		
+		// 文本框输入事件
+		document.getElementById("text").onkeyup = function(){
+			console.log("文本框的onkeyup键盘输入事件");
+			console.log(this.value);
+		}
+
+	</script>
+</html>

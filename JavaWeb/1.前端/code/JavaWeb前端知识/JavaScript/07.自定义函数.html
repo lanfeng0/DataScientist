@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>自定义普通函数</title>
+		<script type="text/javascript">
+//			javascript函数统一使用function关键字定义
+//          1.无参数函数
+			function f1(){
+				console.log("无参函数");
+			}
+			// 调用函数方式1：在<script>全局中直接调用
+			f1();
+			
+//			2.有参数函数
+			function f2(a,b){ // 形参列表使用逗号隔开
+				console.log("有参函数");
+				console.log("a:" + a +",b:" + b);
+			}		
+			// 调用函数
+			f2("实参1","实参2");
+			
+			// 3.有返回值函数
+			function f3(param){
+				console.log("有返回值函数");
+				// 使用return关键字返回一个值，有且一个值
+				return param; 
+			}
+			
+			// 调用有返回值函数
+			var result = f3("f3函数的实参");
+			console.log("接收f3函数返回值："+ result);
+			
+			function f4(){
+				console.log("函数f4..."); 
+				// 函数调用方式2:函数之间互相调用
+				f1();	
+			}
+			f4();
+			
+			
+		    // 匿名函数,函数表达式,一般是javascript直接绑定事件  DOM对象.事件属性 = function(){...}
+		    var ff = function(){
+		    	console.log("匿名函数..."); 
+		    }
+		    // 
+		    ff();
+		    
+		  
+		</script>	
+	</head>
+	<body>
+		<!--函数调用方式3:由HTML元素事件属性进行调用-->
+		<button onclick="f1()">HTML元素事件调用javascript函数</button>
+	</body>
+</html>

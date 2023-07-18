@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>AJAX异步请求</title>
+	</head>
+	<body>
+		<div id="myDiv">使用 AJAX 获取该文本内容</div>
+		<button type="button" id="btn">获取文本内容</button>
+	</body>
+	<script>
+		document.getElementById("btn").onclick = function() {
+			// 1.创建AJAX核心对象：XMLHttpRequest对象
+			var xhr = new XMLHttpRequest();
+			// 2.向服务器发送请求
+			xhr.open("GET", "ajax_info.txt", true);
+			xhr.send();
+			// 3.监听响应的状态
+			xhr.onreadystatechange = function() {
+				if (xhr.readyState == 4 && xhr.status == 200) { // 响应已就绪
+					// 获取服务器响应的数据,显示在指定DOM元素上,实现局部刷新
+					document.getElementById("myDiv").innerText = xhr.responseText; // responseText获得字符串形式的响应数据。
+				}
+			}
+		};
+	</script>
+	<body>
+		<div id="myDiv2">使用 AJAX 获取JSON内容</div>
+		<button type="button" id="btn2">获取内容</button>
+	</body>
+	<script>
+		document.getElementById("btn2").onclick = function() {
+			// 1.创建AJAX核心对象：XMLHttpRequest对象
+			var xhr = new XMLHttpRequest();
+			// 2.向服务器发送请求
+			xhr.open("GET", "ajax_info.json", true);
+			xhr.send();
+			// 3.监听响应的状态
+			xhr.onreadystatechange = function() {
+				if (xhr.readyState == 4 && xhr.status == 200) { // 响应已就绪
+					// 将JSON字符串转换成JS对象
+					let object = JSON.parse(xhr.responseText); // responseText获得字符串形式的响应数据。
+					document.getElementById("myDiv2").innerText = object.name + "," + object.age
+				}
+			}
+		};
+	</script>
+</html>

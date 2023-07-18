@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>匿名函数和函数表达式</title>
+		<script type="text/javascript">
+			// 1.普通函数
+			function 函数名(参数列表){
+				// 函数体
+				return 值;
+			}
+			
+			// 2.匿名函数：函数没有名称
+			// 函数表达式：其实就是把这个匿名函数赋值给一个变量fun
+			var fun = function(){
+				console.log("匿名函数");
+				return "匿名函数的返回值";
+			}
+			
+			// 调用匿名函数,使用变量名()调用
+			console.log(fun); // 输出整个匿名函数体
+			
+			console.log(fun()); // 执行函数体 
+			
+			// 应用: 事件直接绑定匿名函数
+			// 窗口onload加载事件，页面加载完成后，自动执行该函数
+			window.onload = function(){
+				console.log("onload事件执行函数")
+			}
+			
+			
+		</script>
+	</head>
+	<body>
+		<button id="btn">按钮点击事件</button>
+		
+		<script>
+			// DOM元素绑定按钮点击事件
+			// 获取DOM元素
+			document.getElementById("btn").onclick = function(){
+				console.log("点击事件执行函数体")
+			}
+		</script>
+	</body>
+</html>
