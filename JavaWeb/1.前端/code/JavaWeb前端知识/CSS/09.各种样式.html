@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>各种样式</title>
+		<style type="text/css">
+			#div1{
+				/*字体相关样式*/
+				font-family: "微软雅黑";
+				font-weight: bold;
+				font-size: 20px;
+				font-style: italic;				
+			}
+			#div2{
+				/*font样式的简写,字体样式必须位于最后定义*/
+				font: italic bold 20px "微软雅黑";
+			}
+			#div3{
+				/*文本相关样式*/
+				background-color: pink;
+				height: 50px;
+				color: red;
+				text-align: center;
+				line-height: 50px; /*当行高=高度实现垂直居中的效果*/
+			}
+			p{
+				text-indent: 2em;
+				text-decoration: underline;
+			}
+			a{
+				text-decoration: none;
+			}
+			
+			/*CSS3高级选择器*/
+			#t button:nth-child(1){
+				cursor: default;
+			}
+			#t button:nth-child(2){
+				cursor: pointer;
+			}
+			#t button:nth-child(3){
+				cursor: wait;
+			}
+			#t button:nth-child(4){
+				cursor: help;
+			}
+			#t button:nth-child(5){
+				cursor: crosshair;
+			}
+			#t button:nth-child(6){
+				cursor: text;
+			}
+			
+			#div4{
+				height: 200px;
+				/*背景样式*/
+				background-color: gold;
+				background-image: url(img/img1.jpg);
+				background-repeat: no-repeat;
+				background-position: 0px 0px;
+				
+				/*设置背景图的大小*/
+				background-size: contain;  /*图片按照背景最短边进行按比例放大或缩小*/
+				/*background-size: cover;    图片按照背景最长边进行按比例放大或缩小*/
+				/*background-size: 100% 100%; 宽度和高度按照百分比进行填充*/
+			}
+			#div5{
+				height: 200px;
+				background: url(img/img1.jpg) no-repeat 20px 20px gainsboro;
+			}
+			
+			ul li{
+				background-color: paleturquoise;
+			}
+			#ul1{
+				
+			}
+			#ul2{
+				list-style-position: inside;/* 列表项目符号位置*/
+			}
+			#ul3{
+				list-style-image: url(img/arrow-icon.gif); /*用图片代替默认的列表符号*/
+			}
+			#ul4{
+				list-style-type: none; /*去除列表项符号*/
+			}
+			#ul5{
+				list-style: none; /*简写*/
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1">
+			演示CSS字体相关样式
+		</div>
+		<div id="div2">
+			演示CSS字体相关样式-简写
+		</div>
+		
+		<hr />
+		<div id="div3">
+			演示CSS文本相关样式
+		</div>
+		<p>段落1</p>
+		<p>段落2</p>
+		<a href="">超链接</a>
+		
+		<hr />
+		演示CSS鼠标样式：
+		<div id="t">
+			<button>鼠标样式-默认箭头</button>
+			<button>鼠标样式-手指</button>
+			<button>鼠标样式-等待</button>
+			<button>鼠标样式-帮助</button>
+			<button>鼠标样式-十字型</button>
+			<button>鼠标样式-文本</button>
+		</div>
+		
+		<hr />
+		演示CSS背景样式:
+		<div id="div4">
+			背景样式
+		</div>
+		<hr />
+		<div id="div5">
+			背景样式
+		</div>
+		
+		<hr />
+		演示CSS列表样式：
+		<ul id="ul1">
+			<li>列表1</li><li>列表2</li><li>列表3</li><li>列表4</li>
+		</ul>
+		<ul id="ul2">
+			<li>列表1</li><li>列表2</li><li>列表3</li><li>列表4</li>
+		</ul>
+		<ul id="ul3">
+			<li>列表1</li><li>列表2</li><li>列表3</li><li>列表4</li>
+		</ul>
+		<ul id="ul4">
+			<li>列表1</li><li>列表2</li><li>列表3</li><li>列表4</li>
+		</ul>
+		<ul id="ul5">
+			<li>列表1</li><li>列表2</li><li>列表3</li><li>列表4</li>
+		</ul>
+	</body>
+</html>

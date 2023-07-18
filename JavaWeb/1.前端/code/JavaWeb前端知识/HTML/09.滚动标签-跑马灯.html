@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>滚动标签-跑马灯</title>
+	</head>
+	<body>
+		1.滚动标签常见属性：<br />
+		direction="设置滚动方向",默认为从右到左;<br />
+		width="宽度" ;<br />
+		height="高度" ;<br />
+		bgcolor="背景颜色";<br />
+		scrollamount="滚动速度"<br />
+		<marquee>欢迎你,陈林</marquee>
+		<hr />
+		<marquee direction="right">欢迎你,陈林</marquee>
+		<hr />
+		<marquee  width="500" height="100" bgcolor="cadetblue">欢迎你,陈林</marquee>
+		<hr />
+		<marquee  width="500" height="100" bgcolor="pink" scrollamount="50">欢迎你,陈林</marquee>
+		<hr />
+		2.滚动事件,鼠标进入事件,鼠标移出事件onmouseover="this.stop()" onmouseout="this.start()":
+		<marquee onmouseover="this.stop()" onmouseout="this.start()" bgcolor="antiquewhite">
+			<a href="http://www.baidu.com">百度</a>
+		</marquee>
+		
+		3.滚动方式
+		<marquee behavior="alternate" width="300" bgcolor="palevioletred">欢迎你 来回滚动</marquee>
+		<marquee behavior="scroll" width="300" bgcolor="palevioletred">欢迎你 重复滚动</marquee>
+		<marquee behavior="slide" width="300" bgcolor="palevioletred">欢迎你 只滚一次</marquee>
+		
+		<hr />
+		4.练习
+		<marquee onmouseover="this.stop()" onmouseout="this.start()" scrollamount="3" scrolldelay="50" width="280" height="18" behavior="scroll" direction="left">
+
+        	<img src="https://www.xmrc.com.cn/Net/Images/an09.gif">
+        	<a href="http://www.xmrc.com.cn/net/wcm/ShowInfo.aspx?docId=107242" target="_blank">厦门市人才市场人才交流会的举办地点及乘车路线</a>&nbsp;
+    
+        	<img src="https://www.xmrc.com.cn/Net/Images/an09.gif">
+        	<a href="http://hrss.xm.gov.cn/ztzl/12333/" target="_blank">欢迎拨打我市12333综合咨询服务热线咨询了解人社政策法规及业务流程（包括人事代理及档案管理业务等）</a>&nbsp;
+    
+		</marquee>
+	</body>
+</html>

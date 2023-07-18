@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>其他选择器</title>
+		<style type="text/css">
+			/*4.后代选择器
+			 用来选择特定元素的所有后代
+			 使用空格符号
+			 父元素 后代元素{....}
+			 * */
+			div h1{
+				background-color: olive;
+			}			
+			#nav li{
+				list-style: none;
+			}		
+			h1 span{
+				background-color: red;
+			}		
+			/*5.子代选择器
+			 用来选择特定元素的所有的子代
+			使用>符号
+			父元素 子元素{...}
+			 */
+			h2>span{
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		后代选择器：
+		<h1>h1</h1>
+		<div>
+			<h1>div-h1</h1>
+			<div id="">
+				<h1>div-div-h1</h1>
+			</div>
+		</div>
+		<div id="nav">
+			<ul>
+				<li>div-ul-li</li>
+				<li>div-ul-li</li>
+			</ul>
+		</div>
+		
+		<hr />
+		<h1>
+			<span>h1-span</span>
+			<span>h1-span</span>
+			<p>
+				<span>h1-p-span</span>
+			</p>
+		</h1>
+		
+		<hr />
+		子代选择器：
+		<h2>
+			<span>h2-span</span>
+			<span>h2-span</span>
+			<p>
+				<span>h2-p-span</span>
+			</p>
+		</h2>
+	</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>引入方式</title>
+		<!--2.内部样式,通过style标签定义样式,当前页面有效-->
+		<style type="text/css">
+			/*选择器{
+				样式名:样式值;样式名:样式值;
+			}*/
+			h1{
+				font-size: 12px;
+				background-color: darkgray;
+			}			
+		</style>
+		<!--3.外部样式,需要通过标签link引入外部的css文件,在引入的页面中有效-->
+		<link rel="stylesheet" type="text/css" href="css/main.css"/>
+	</head>
+	<body>
+		<!--1.行内样式,表示直接在标签中通过属性style定义样式,仅对其标签有效-->
+		<h1 style="background-color: pink;">标题</h1>
+		<h1>标题</h1>
+		<h2>标题</h2>
+		<hr />
+		
+		<h6>行内样式：通过HTML标签的style属性引入css样式,作用域：仅针对所在的标签</h6>
+		<h6>内部样式：通过style标签引入css样式,作用域：当前HTML页面有效</h6>
+		<h6>外部样式：通过link标签引入css样式,作用域：在指定页面中引入即有效</h6>
+	</body>
+</html>

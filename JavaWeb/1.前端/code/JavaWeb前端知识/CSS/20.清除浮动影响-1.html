@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>clear-1</title>
+		<style type="text/css">
+			#one{
+				border: 1px black solid;
+			}
+			#one-1{
+				width: 200px;
+				height: 200px;
+				background-color: olive;
+				float: left;
+			}
+			#one-2{
+				width: 200px;
+				height: 200px;
+				background-color: pink;
+				float: right;
+			}
+			#two{
+				height: 200px;
+				background: orchid;
+			}
+			/*推荐做法:直接通过CSS选择器after在指定元素的后面插入一个空的块内容,设置清除浮动的样式*/
+			#one:after{
+				display: block;
+				content: "";
+				clear: both;
+			}
+		</style>
+	</head>
+	<body>
+		<!--第一层DIV-->
+		<div id="one">
+			<div id="one-1">one-1</div>
+			<div id="one-2">one-2</div>
+		</div>
+	
+		<!--方式1:在父DIV外设置一个空的DIV,设置清除浮动的样式-->
+		<!--<div style="clear: both;"></div>-->
+		
+		<!--第二层DIV-->
+		<div id="two">two</div>
+	</body>
+</html>

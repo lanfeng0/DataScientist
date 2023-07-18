@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>表格合并</title>
+	</head>
+
+	<body>
+		<ul>
+			<li>完整表格=表头+表体+表尾</li>
+			<li>table定义一个表格,必需标签</li>
+			<li>thead,tbody,tfoot定义一个表头，表体，表尾的容器，非必需标签</li>
+			<li>tr定义一个行,必需标签</li>
+			<li>th/td定义列,必需标签</li>
+			<li>th有自动加粗居中的效果,td普通效果</li>
+		</ul>
+		<table border="" cellspacing="" cellpadding="" width="500">
+			<tr>			
+				<th>学生姓名</th>
+				<th>科目</th>
+				<!--colspan="2" 当前的单元格跨2列-->
+				<th colspan="2">分数</th>
+				<!-- <th >分数</th> -->
+				<th>备注</th>
+			</tr>
+			<tr>	
+				<!--rowspan="2"当前的单元格会跨2行-->	
+				<td rowspan="2">张三</td>
+				<td>JAVA</td>
+				<td>80</td>
+				<td>70</td>
+				<td>70</td>
+			</tr>
+			<tr>
+				<!--<td>张三</td>-->
+				<td>PHP</td>
+				<td>75</td>
+				<td>70</td>
+				<td>70</td>
+			</tr>
+			<tr>
+				<td rowspan="2">李四</td>
+				<td>JAVA</td>
+				<td>88</td>
+				<td>70</td>
+				<td>70</td>
+			</tr>
+			<tr>
+				<!--<td>李四</td>-->
+				<td>PHP</td>
+				<td>88</td>
+				<td>70</td>
+				<td>70</td>
+			</tr>
+		</table>
+	</body>
+
+</html>

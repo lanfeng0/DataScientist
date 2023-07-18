@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#nav li{
+				list-style: none; /*去掉列表的序号*/
+			}
+			#nav li a{
+				color: cadetblue; /*字体颜色*/
+				font-weight: bold;/*字体加粗*/
+				text-decoration: none; /*去掉下划线*/
+				
+			}
+			/*伪类选择器*/
+			#nav li a:hover{
+				color: orange;
+				border-bottom: 2px orange solid;
+			}
+			
+			.pass-button {
+			    display: block; /*元素呈现块的形式*/
+			    height: 40px;
+			    line-height: 40px; 
+			    width: 300px;
+			    font-size: 16px;
+			    font-weight: 800;
+			    cursor: pointer; /*鼠标样式为手指*/
+			    color: #fff;
+			    background: #3f89ec;
+			    border: 0;  /*无边框*/
+			    border-radius: 30px; /*边框弧度*/  
+			}
+			.pass-button:hover{
+				background-color: #5F9EA0;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="nav">
+			<ul>
+				<li>
+					<a href="">超链接1</a></li>
+				<li><a href="">超链接2</a></li>
+				<li><a href="">超链接3</a></li>
+			</ul>
+		</div>
+		
+		<hr />
+		
+		<input type="button" value="登录" class="pass-button" />
+		<input type="button" />
+	</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>visibility</title>
+		<style type="text/css">
+			div{
+				background-color: palegoldenrod;
+			}
+			div ul{
+				visibility: hidden;
+			}
+			/*对父div做hover事件,把后代ul显示*/
+			div:hover ul{
+				visibility: visible;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="">
+			<p>使用visibility实现元素的隐藏和显示</p>
+			<ul>
+				<li>列表1</li>
+				<li>列表1</li>
+				<li>列表1</li>
+				<li>列表1</li>
+			</ul>
+		</div>
+		
+	</body>
+</html>

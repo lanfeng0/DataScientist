@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>form表单</title>
+	</head>
+	<body>
+		<p>表单:用于提交数据到服务器</p>
+		<p>form标签属性action="数据提交到目标服务器的URL"</p>
+		<p>form标签属性method="HTTP请求方式 get/post"</p>
+		<p>form标签属性enctype="提交的内容类型" application/x-www-form-urlencoded(默认值)或multipart/form-data(涉及文件控件)</p>
+		<hr />
+		<form action="index.html" method="get" enctype="application/x-www-form-urlencoded">
+		  <!--1.input标签-->	
+		  单行文本框:
+		 <input type="text" name="" id="" value="" /><br />	 
+		 密码框:
+		 <input type="password" name="" id="" value="" /><br />
+		 
+		 隐藏框(页面不显示但是依然可以传递数据)：
+		 <input type="hidden" name="" id="" value="" /><br />
+		 
+		 单选按钮(同一组互斥的单选按钮,name属性值必须一致,属性表示默认被选中checked="checked")：
+		 <input type="radio" name="gender" id="" value="" checked="checked"/><label>男</label>
+		 <input type="radio" name="gender" id="" value="" /><label>女</label><br />
+		 
+		复选框(同一组复选框,建议name属性值一致,属性表示默认被选中checked="checked"):
+		<input type="checkbox" name="hobby" id="" value="" checked="checked"/><label>吃</label>
+		<input type="checkbox" name="hobby" id="" value="" /><label>喝</label>
+		<input type="checkbox" name="hobby" id="" value="" /><label>玩</label><br />
+		
+		复选框(同一组复选框,建议name属性值一致):
+		<input type="checkbox" name="project" id="" value="" /><label>语文</label>
+		<input type="checkbox" name="project" id="" value="" /><label>数学</label>
+		<input type="checkbox" name="project" id="" value="" /><label>英语</label><br />
+		单文件框：
+		<input type="file" name="" id="" value="" /><br />
+		 
+		多文件框(设置属性multiple="multiple"):
+		 <input type="file" name="" id="" value="" multiple="multiple" /><br />	 
+		日期控件:
+		<input type="date" name="" id="" value="" />
+		<input type="datetime-local" name="" id="" value="" />
+		<input type="month" name="" id="" value="" />
+		<input type="week" name="" id="" value="" /><br />
+		数值控件：
+		<input type="number" name="" id="" value="" min="1"/>
+	
+		<hr />
+		下拉框属性表示默认被选中selected="selected":
+		<select name="">
+			<option value="">唱歌</option>
+			<option value="">跳舞</option>
+			<option value="">RAP</option>
+			<option value="" selected="selected">篮球</option>
+		</select>
+		<hr />
+		
+		多行文本域(宽度和高度使用cols、rows设置):
+		<textarea rows="5" cols="60"></textarea>
+		
+		<hr />
+		input标签按钮:<br />
+		普通按钮 配合javascript函数做事件处理
+		<input type="button" value="普通按钮" onclick="alert('你注意一点!')"/><br />
+		复位按钮 恢复表单的初始状态,value属性未设置默认显示"重置":
+		<input type="reset" name="" id="" /><br />
+		提交按钮:提交表单数据到指定服务器位置,触发form标签中的action属性,value属性未设置默认显示"提交"
+		<input type="submit" name="" id="" />
+		
+		<hr />
+		button按钮标签，非闭合标签，可以在该标签内部插入其他html元素，因此可以定义出功能强大的按钮。注意,button默认type是提交类型。<br />
+		<button type="submit">
+			button标签,默认是提交类型
+		</button>
+		<button type="button">
+			button标签,普通
+			<img src="img/logo.jpg" width="30" height="30"/>
+		</button>
+		<button type="reset">
+			button标签,重置
+		</button>
+		</form>
+	</body>
+</html>

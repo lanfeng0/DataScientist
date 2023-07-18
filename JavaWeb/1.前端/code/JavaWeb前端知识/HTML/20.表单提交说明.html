@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>表单的提交说明</title>
+	</head>
+	<body>
+		<form action="index.html" method="get" enctype="application/x-www-form-urlencoded">
+			<input type="hidden" name="op" id="" value="register" /><br />
+			用户名:
+			<input type="text" name="username" id="" value="" /><br />
+			密码：
+			<input type="password" name="password" id="" value="" /><br />
+			性别：
+			<input type="radio" name="gender" id="" value="男" /><label>男</label>
+			<input type="radio" name="gender" id="" value="女" /><label>女</label><br />
+			爱好：
+			<input type="checkbox" name="hobby" id="" value="跳舞" /><label>跳舞</label>
+			<input type="checkbox" name="hobby" id="" value="唱歌"/><label>唱歌</label><br />
+			下拉框：
+			<select name="code">
+				<option value="本科">本科</option>
+				<option value="大专">大专</option>
+				<option value="高中">高中</option>
+				<option value="中职">中职</option>
+			</select>
+			<br />
+			<input type="submit" value="注册"/>
+		</form>
+	</body>
+</html>

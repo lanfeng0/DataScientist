@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>表格的美化</title>
+	</head>
+
+	<body>
+<ul>
+	<li>colspan="跨的列数" 表示当前单元格跨几列</li>
+	<li>rowspan="跨的行数" 表示当前单元格跨几行</li>
+	<li>bgcolor设置表格table、行tr、单元格th/td的背景颜色</li>
+	<li>border设置表格边框宽度、bordercolor表格边框线的颜色</li>
+	<li>width、height设置表格table、tr、th、td的宽度和高度</li>
+	<li>cellpadding单元格的填充： 当前单元格内 文本离边框的距离<li>
+	<li>cellspacing单元格的间距：单元格和其他单元格的间距</li>
+	<li>align:表格的文字水平位置，可选值包括left、center、right。align如果是设置为table标签的属性，那么是表示整张表格对于页面水平方向，无法对单元格内的文字内容有效。</li>
+	<li>align如果是设置为tr/th/td标签的属性，就是单元格内文字水平位置</li>
+	<li>valign:表格内文字的垂直位置，tr/th/td元素的属性，valign可选值包括top、middle、bottom。</li>
+</ul>
+		<table border="1" bordercolor="gray"  cellpadding="0" cellspacing="20" bgcolor="antiquewhite" width="800" height="300" align="center" >
+			<tr bgcolor="brown">
+				<th colspan="4">品牌商城</th>
+			</tr>
+			<tr>
+				<td colspan="2" bgcolor="goldenrod">笔记本电脑</td>
+				<td colspan="2" bgcolor="greenyellow">冰箱</td>
+			</tr>
+			<tr align="center">
+				<td >Dell笔记本</td>
+				<td >惠普笔记本</td>
+				<td >海尔冰箱</td>
+				<td >美的冰箱</td>
+			</tr>
+			<tr height="50">
+				<td align="right" valign="bottom">测试</td>
+				<td>测试</td>
+				<td>测试</td>
+				<td>测试</td>
+			</tr>
+		</table>
+</body>
+</html>

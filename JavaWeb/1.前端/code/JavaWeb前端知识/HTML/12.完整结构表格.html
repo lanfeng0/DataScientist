@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>完整结构的表格</title>
+	</head>
+
+	<body>
+		<ul>
+			<li>完整表格=表头+表体+表尾</li>
+			<li>table定义一个表格,必需标签</li>
+			<li>thead,tbody,tfoot定义一个表头，表体，表尾的容器，非必需标签</li>
+			<li>tr定义一个行,必需标签</li>
+			<li>th/td定义列,必需标签</li>
+			<li>th有自动加粗居中的效果,td普通效果</li>
+		</ul>
+		<table border="" cellspacing="" cellpadding="" width="500">
+			<!--表头-->
+			<thead>
+				<!--行-->
+				<tr>
+					<!--列：默认加粗居中-->
+					<th>表头单元格1</th>
+					<th>表头单元格2</th>
+					<th>表头单元格3</th>
+				</tr>
+			</thead>
+			<!--表体-->
+			<tbody>
+				<!--行-->
+				<tr>
+					<!--列：普通效果-->
+					<td>单元格1</td>
+					<td>单元格2</td>
+					<td>单元格3</td>
+				</tr>
+				<tr>
+					<td>单元格1</td>
+					<td>单元格2</td>
+					<td>单元格3</td>
+				</tr>
+				<tr>
+					<td>单元格1</td>
+					<td>单元格2</td>
+					<td>单元格3</td>
+				</tr>
+			</tbody>
+			<!--表尾-->
+			<tfoot>
+				<tr>
+					<td>表尾单元格1</td>
+					<td>表尾单元格2</td>
+					<td>表尾单元格3</td>
+				</tr>
+			</tfoot>
+		</table>
+	</body>
+
+</html>

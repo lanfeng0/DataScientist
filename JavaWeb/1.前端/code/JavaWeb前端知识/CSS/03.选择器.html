@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>选择器</title>
+		<style type="text/css">
+			/*选择器{
+				样式名:样式值;样式名:样式值;样式名:样式值;
+			}*/
+			
+			/*1.标签选择器：
+			 仅对当前页面中的指定HTML标签有效
+			 使用HTML标签名
+			 标签名{....}
+			*/
+			h1{
+				background-color: cornflowerblue;
+			}
+			h2{
+				background-color: orange;
+			}
+			
+			/*2.ID选择器: 
+			 仅对指定ID的唯一元素有效
+			 使用#符号
+			#HTML元素的ID值{...}
+			*/
+			#h3-1{
+				background-color: gray;
+			}
+			#h3-2{
+				background-color: darkgoldenrod;
+			}
+			
+			/*3.class类选择器
+			 仅对指定的class值的一个或多个元素有效
+			 使用.符号
+			 .class属性值{....}
+			 */
+			.myclass{
+				background-color: yellow;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>标题h1</h1>
+		<h1>标题h1</h1>
+		<h2>标题h2</h2>
+		<hr />
+		<h3 id="h3-1">标题h3-1</h3>
+		<h3 id="h3-2">标题h3-2</h3>
+		<hr />
+		<h5 class="myclass">标题5</h5>
+		<p  class="myclass">段落</p>
+		<div class="myclass">DIV</div>
+		
+	</body>
+</html>

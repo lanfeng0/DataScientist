@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>主页面-导航切换</title>
+	</head>
+	<body>
+		<ul>
+			<!--超链接通过target="iframe的name"指定打开的位置-->
+			<li><a href="A.html" target="show">内容1</a></li>
+			<li><a href="B.html" target="show">内容2</a></li>
+			<li><a href="C.html" target="show">内容3</a></li>
+		</ul>
+		<!--name:表示为iframe窗口定义了一个名字-->
+		<iframe src="A.html" width="100%" height="700" scrolling="0" frameborder="0" name="show"></iframe>
+	</body>
+</html>

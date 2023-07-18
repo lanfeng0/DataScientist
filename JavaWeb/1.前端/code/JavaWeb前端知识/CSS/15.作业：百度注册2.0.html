@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>百度注册2.0+CSS</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				font-family: "微软雅黑";
+				background: url(https://passport.baidu.com/static/passpc-account/img/reg_bg_min.jpg) no-repeat;
+			}
+			a{
+    			text-decoration: none;
+    		}
+    		.tang-pass-reg a {
+   				color: #2E58FF;
+			}
+			.tang-pass-reg a:hover {
+   				text-decoration: underline;
+			}
+			.mod-new-reg-content{
+				position: absolute;
+			    right: 139px;
+			    top: 10%;
+			    width: 480px;
+			    background: rgba(255,255,255,.9);
+			    border-radius: 12px;
+			    overflow: hidden;
+			}
+			.new-reg-guide-login{
+				margin: 50px 0 22px 39px
+			}
+			 .new-reg-guide-login h3 {
+			    font-size: 36px;
+			    color: #000;
+			    padding-bottom: 4px;
+			}
+			 .new-reg-guide-login p {
+			    font-size: 14px;
+			    color: #9B9B9B;
+    		}
+    		.new-reg-guide-login a{
+    			color: #2e58ff;
+    		}
+    		.tang-pass-reg .pass-label {
+    			display: inline-block;  /*设置元素的显示方式依然是内联元素,但是拥有块的特性,可以设置宽度高度等等*/
+			    font-size: 14px;
+			    color: #333;
+			    letter-spacing: 0;
+			    text-align: right;
+			    width: 82px;
+			    height: 40px;
+			    line-height: 40px;
+			    margin-right: 15px;
+			    font-weight: 200;
+			}
+			.tang-pass-reg .pass-text-input {
+				display: inline-block;  /*设置元素的显示方式依然是内联元素,但是拥有块的特性,可以设置宽度高度等等*/
+			    padding: 11px 10px;
+			    max-height: 40px;
+			    background: #fff;
+			    border: 1px solid #E0E0E0;
+			    border-radius: 4px;
+			    font-size: 14px;
+			    width: 321px;
+			    color: #000;
+			}
+    		.tang-pass-reg .pass-text-input:hover{
+    			border-color: #bdc2cc;
+    		}
+    		.tang-pass-reg .pass-text-input-verifyCode{
+    			width: 184px;
+    			margin-right: 6px;
+    		}
+    		.tang-pass-reg input.pass-button-verifyCodeSend{
+    			display: inline-block;  /*设置元素的显示方式依然是内联元素,但是拥有块的特性,可以设置宽度高度等等*/
+    			width: 126px;
+    			height: 40px;
+			    border-radius: 4px;
+			    background: #fff;
+			    border: 1px solid #E0E0E0;
+			    font-size: 12px;
+			    color: #333;
+			    letter-spacing: 0;
+			    text-align: center;
+			    line-height: 24px;
+    		}
+    		.tang-pass-reg input.pass-button-verifyCodeSend:hover {
+			    color: #2E58FF;
+			    border: 1px solid #2E58FF;
+			    background: #fff;
+			}
+			.tang-pass-reg .pass-form-item {
+   				 margin-bottom: 40px;
+   		   }
+   		   .tang-pass-reg .pass-button-submit {
+			    background: #BDCEFC;
+			    border-radius: 25px;
+			    width: 399px;
+			    display: block;
+			    height: 50px;
+			    font-size: 16px;
+			    font-weight: 700;
+			    cursor: pointer;
+			    color: #fff;
+			    background-image: none;
+			    border: 0;
+				margin-top:60px ;
+				margin-bottom: 15px;
+				margin-left: 40px;
+   			 }
+   			 .tang-pass-reg .pass-button-submit:hover{
+   			 	background: #3f89ec;
+   			 }
+   			 .tang-pass-reg .pass-form-item-isAgree{
+   			 	margin-left: 41px;
+			    width: 399px;
+			    text-align: center;
+			    color: #666;
+			    font-size: 12px;
+			    margin-left: 35px;
+   			 }
+   			 .tang-pass-reg  .pass-checkbox-isAgree{
+   			 	position: relative;
+   			 	top: 2px;
+   			 }
+   			 .pass-form-item-isAgree label{
+   			 	color: #666;
+			    font-size: 12px;
+			    margin-left: 5px;
+   			 }
+		</style>
+	</head>
+
+	<body>
+		<div id="">
+			<!--头部-->
+			<div id="head">
+
+			</div>
+			<!--导航栏-->
+			<div id="nav">
+
+			</div>
+			<!--内容-->
+			<div id="content">
+				<!--注册表单-->
+				<div id="" class="mod-new-reg-content">
+					<div class="new-reg-guide-login">
+						<h3>欢迎注册</h3>
+						<p>
+							<span>已有帐号？</span>
+							<a href="" id="login_btn">登录</a>
+						</p>
+					</div>
+					<div id="" class="tang-pass-reg">
+						<form action="index.html" method="get">
+							<p class="pass-form-item">
+								<label for="username" class="pass-label">用户名</label>
+								<input type="text" name="username" id="username" value="" placeholder="请设置用户名" class="pass-text-input"/>
+							</p>
+							<p class="pass-form-item">
+								<label for="phone" class="pass-label">手机号</label>
+								<input type="text" name="phone" id="phone" value="" placeholder="可用于登录和找回密码"  class="pass-text-input"/>
+							</p>
+							<p class="pass-form-item">
+								<label for="password" class="pass-label">密&nbsp;&nbsp;&nbsp;码</label>
+								<input type="password" name="password" id="password" value="" placeholder="请设置登录密码"  class="pass-text-input"/>
+							</p>
+							<p class="pass-form-item">
+								<label for="verifyCode" class="pass-label">验证码</label>
+								<input type="text" name="verifyCode" id="verifyCode" value="" placeholder="请输入验证码"  class="pass-text-input pass-text-input-verifyCode"/>
+								<input type="button" id="" value="获取验证码" onclick="alert('4567')" class="pass-button-verifyCodeSend" />
+							</p>
+							<p >
+								<input type="submit" id="" name="" value="注册" class="pass-button-submit" />
+							</p>
+							<p class="pass-form-item pass-form-item-isAgree">
+								<input type="checkbox" name="isAgree" id="isAgree" value="isAgree" class="pass-checkbox-isAgree" />
+								<label for="isAgree">阅读并接受</label>
+								<a target="_blank" href="http://passport.baidu.com/static/passpc-account/html/protocal.html">《百度用户协议》</a>
+							    及
+							    <a target="_blank" href="http://privacy.baidu.com/mdetail?id=288">《百度隐私权保护声明》</a>
+							</p>
+						</form>
+					</div>
+				</div>
+			</div>
+			<!--尾部-->
+			<div id="footer">
+
+			</div>
+		</div>
+	</body>
+
+</html>

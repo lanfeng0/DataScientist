@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>边框border</title>
+		<style type="text/css">
+			div{
+				width: 200px;
+				height: 200px;
+			}
+			#div1{
+				border-style: solid; /*实线*/
+				border-width: 2px;
+				border-color: red;
+			}
+			
+			#div2{
+				/*简写*/
+				border: double olivedrab 2px; /*四条边同时生效*/
+			}
+			#div3{
+				/*四条边*/
+				border-bottom: solid green 4px;
+				border-top: solid red 4px;
+				border-left: solid blue 4px;
+				border-right: solid pink 4px;
+			}
+			#div4{
+				border-style: solid;
+				border-color: red; /*四条边都是红色*/
+				border-color: red blue; /*上下是红色,左右蓝色*/
+				border-color: red blue green orange; /*上右下左 顺时针*/
+			} 			
+			a{
+				text-decoration: none;
+			}
+			a:hover{
+				border-bottom: orange solid 2px;
+			}
+			button{
+				background-color: gainsboro;
+				border: none;
+				border-radius: 40px;
+			}			
+			#div5{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				border-radius: 50%;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1">
+			边框
+		</div>
+		<div id="div2">
+			边框
+		</div>
+		<div id="div3">
+			边框
+		</div>
+		<div id="div4">
+			边框
+		</div>
+		
+		<hr />
+		边框常见3种应用：
+		1.悬浮时候添加下边框
+		<a href="">悬浮时候添加下边框</a>
+		2.对按钮去除边框
+		<button>按钮</button>
+		
+		3. 对按钮添加边框弧度
+		<button>按钮</button>
+		<hr />
+		<div id="div5">
+			
+		</div>
+	</body>
+</html>

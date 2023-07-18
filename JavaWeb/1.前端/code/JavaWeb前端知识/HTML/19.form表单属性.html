@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>form表单</title>
+	</head>
+	<body>
+		<p>表单:用于提交数据到服务器</p>
+		<p>form标签属性action="数据提交到目标服务器的URL"</p>
+		<p>form标签属性method="HTTP请求方式 get/post"</p>
+		<p>form标签属性enctype="提交的内容类型" application/x-www-form-urlencoded(默认值)或multipart/form-data(涉及文件控件)</p>
+		<hr />
+		<p>常见属性：</p>
+		<p>name：当前表单标签的名称，在提交数据时，以name属性作为实际值的索引。
+		通常name属性值在同一个表单内保证唯一的，除了特殊情况：互斥的同一组单选框name属性值必须一致，同一组复选框name属性值建议一致。</p>
+		<p>value：设定或获取当前表单元素的输入值。</p>
+		<p>id：表单标签的唯一索引，一般在js中根据唯一索引获取表单元素。</p>
+		<p>checked="checked"设置在单选框和复选框的表单元素上表示默认被选中</p>
+		<p>selected="selected" 设置下拉框option默认被选中</p>
+		<p>multiple="multiple"设置文件框可以选中多个文件</p>
+		<p>disabled="disabled":禁用当前表单元素。</p>
+		<p>readonly="readonly"设置表单元素为只读状态无法编辑。</p>
+		<p>placeholder:默认在文本框中提示文字，当开始编辑时会自动消失。(html5新增表单属性)</p>
+		<hr />
+		<form action="index.html" method="get" enctype="application/x-www-form-urlencoded">
+			 <!--1.input标签-->	
+			 单行文本框:
+			 <input type="text" name="username" id="" value="" /><br />	 
+			 密码框:
+			 <input type="password" name="password" id="" value="" /><br />
+					 
+			 单选按钮(同一组互斥的单选按钮,name属性值必须一致,属性表示默认被选中checked="checked")：
+			 <input type="radio" name="gender" id="" value="" checked="checked"/><label>男</label>
+			 <input type="radio" name="gender" id="" value="" /><label>女</label><br />
+			 
+			复选框(同一组复选框,建议name属性值一致,属性表示默认被选中checked="checked"):
+			<input type="checkbox" name="hobby" id="" value="" checked="checked"/><label>吃</label>
+			<input type="checkbox" name="hobby" id="" value="" /><label>喝</label>
+			<input type="checkbox" name="hobby" id="" value="" /><label>玩</label><br />
+
+			多文件框(设置属性multiple="multiple"):
+			<input type="file" name="files" id="" value="" multiple="multiple" /><br />	 
+			<hr />
+			
+			disabled="disabled"禁用元素
+			<button type="button">普通按钮</button>
+			<button type="button" disabled="disabled">被禁用的普通按钮</button>
+			<hr />
+			
+			readonly="readonly"设置文本框只读状态
+			<input type="text" name="" id="" value="显示用户账户名不允许修改,只能阅读"  readonly="readonly" />
+			<hr />
+			
+			placeholder="默认提示符"
+			<input type="text" name="" id="" value="" placeholder="手机号/邮箱"/>
+			
+			<!-- 提交按钮 -->
+			<input type="submit" />
+		</form>
+	</body>
+</html>

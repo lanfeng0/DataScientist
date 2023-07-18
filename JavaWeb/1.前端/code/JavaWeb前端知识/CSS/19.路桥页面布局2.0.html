@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>路桥页面布局2.0</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				
+			}
+			body{
+				font-size: 14px;
+				font-family: "微软雅黑";
+			}
+			.fl{
+				float: left;
+			}
+			.wrap{
+				width: 1000px;
+				height: 72px;
+				/*background-color: gainsboro;*/
+				margin: 0 auto;
+			}
+			#banner,#content,#foot{
+				margin-top: 10px;
+			}
+			/*头部的logo*/
+			.logo{
+				padding: 18px 0;
+			}
+			/*头部导航栏*/
+			.nav{
+				margin-top: 20px;
+				margin-left: 40px;
+			}
+			.nav li{
+				float: left;
+				list-style: none;
+			}
+			.nav li a{
+				display: block;
+			    width: 105px;
+			    text-align: center;
+			    line-height: 32px;
+			    background: #0062ac;
+			    color: #fff;
+			    text-decoration: none;
+			}
+			.nav li a.on{
+				background: #008ad4;
+			}
+			/*头部的搜索*/
+			#top .search-con{
+				margin-top: 20px;
+			}
+			#top .search-con span {
+			    display: block;
+			    width: 32px;
+			    height: 32px;
+			    background: #ee7800 url(http://www.xmlq.com.cn/templates/main/images/fd2.png) no-repeat center center;
+	   		 }
+	   		 
+			.banner-wrap{
+				height: 307px;
+				background: url(http://www.xmlq.com.cn/upload/201901/08/201901081431549870.jpg);
+			}		
+		</style>
+	</head>
+	<body>
+		<!--头部-->
+		<div id="top">
+			<div id="" class="wrap">
+				<!--logo-->
+				<div id="" class="logo fl">
+					<a href="">
+						<img src="http://www.xmlq.com.cn/templates/main/images/logo.png" width="192" height="36"/>
+					</a>
+				</div>
+				<!--nav-->
+				<div id="" class="nav fl">
+					<ul>
+						<li><a href="" class="on">首页</a></li>
+						<li><a href="">关于路桥</a></li>
+						<li><a href="">主营产业</a></li>
+						<li><a href="">新闻资讯</a></li>
+						<li><a href="">企业文化</a></li>
+						<li><a href="">人力资源</a></li>
+						<li><a href="">联系我们</a></li>
+					</ul>
+				</div>
+				<!--搜索-->
+				<div id="" class="search-con fl">
+					<span></span>
+				</div>
+			</div>
+		</div>
+		<!--banner-->
+		<div id="banner">
+			<div id="" class="banner-wrap">
+				
+			</div>
+		</div>
+		<!--内容-->
+		<div id="content">
+			<div id=""  class="wrap">
+				内容
+			</div>
+		</div>
+		
+		<!--尾部-->
+		<div id="foot" >
+			<div id="" class="wrap">
+				尾部
+			</div>
+		</div>
+	</body>
+</html>

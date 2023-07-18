@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>display</title>
+		<style type="text/css">
+		#div1 a{
+				background-color: #FFA500;
+				/*以块的形式显示*/
+				display: block;
+				width: 100px;
+				text-align: center;
+				text-decoration: none;
+				height: 50px;
+				line-height: 50px;
+				margin: 5px;
+			}
+		#div2 a{
+				background-color: #FFA500;
+				/*依然是内联元素,但是拥有块的特性*/
+				display: inline-block;
+				width: 100px;
+				text-align: center;
+				text-decoration: none;
+				height: 50px;
+				line-height: 50px;
+				margin: 5px;
+			}
+		</style>
+	</head>
+	<body>
+		<div style="width: 500px;background: orangered;display: inline;">DIV默认是块元素-display: inline;</div>
+		<div style="width: 500px;background: gray;">DIV默认是块元素</div>
+		
+		<div style="width: 500px;background: hotpink;display: inline;">DIV默认是块元素-display: inline;</div>
+		<div style="width: 500px;background: aqua;display: inline;">DIV默认是块元素-display: inline;</div>
+		
+		<hr />
+		<span style="background: orchid;width: 500px;display: block;">span默认是内联元素-display: block;</span>
+		<span style="background: red;width: 500px;display: inline-block;">span默认是内联元素-display: inline-block;</span>
+		<span style="background: gold;width: 500px;">span默认是内联元素</span>
+	
+		<hr />
+		对超链接做display:block:
+		<div id="div1">
+			<a href="">首页</a>
+			<a href="">首页首页</a>
+			<a href="">首页首页首页</a>
+		</div>
+		<hr />
+		对超链接做display:inline-block:
+		<div id="div2">
+			<a href="">首页</a>
+			<a href="">首页首页</a>
+			<a href="">首页首页首页</a>
+		
+		</div>
+	</body>
+</html>

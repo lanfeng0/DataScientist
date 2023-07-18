@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>z-index</title>
+		<style type="text/css">
+			div{
+				position: absolute;
+			}
+			body div:nth-child(1){
+				width: 200px;
+				height: 200px;
+				background-color: red;
+				z-index: 4; /*数值越高,层次关系越高*/
+			}
+			body div:nth-child(2){
+				width: 300px;
+				height: 200px;
+				background-color: yellow;
+				z-index: 3;
+			}
+			body div:nth-child(3){
+				width: 400px;
+				height: 200px;
+				background-color: cornflowerblue;
+				z-index: 2;
+			}
+			body div:nth-child(4){
+				width: 500px;
+				height: 200px;
+				background-color: green;
+				z-index: 1;
+			}
+			
+		</style>
+	</head>
+
+	<body>
+		<div id=""></div>
+		<div id=""></div>
+		<div id=""></div>
+		<div id=""></div>
+	</body>
+
+</html>

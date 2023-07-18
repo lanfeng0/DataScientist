@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>样式优先级和样式冲突</title>
+		<style type="text/css">
+			div{
+				background-color: orange;
+			}
+		</style>
+		<link rel="stylesheet" type="text/css" href="css/main.css"/>
+	</head>
+	<body>
+		<div style="background-color: red;">
+			演示样式优先级和样式冲突
+		</div>
+		<div >
+			演示样式优先级和样式冲突
+		</div>
+		
+		疑问1: 3种引入方式优先级?
+		<h6>三种引入方式的优先级：行内样式优先级最高，内部样式和外部样式取决于位置</h6>
+		
+		疑问2: 样式冲突?
+		<h6>样式冲突：以最后定义值的为准，就近原则，离元素越近的优先级越高</h6>
+	</body>
+</html>
