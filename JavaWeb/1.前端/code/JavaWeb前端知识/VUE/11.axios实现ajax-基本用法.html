@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>axios实现vue的ajax请求</title>
+		<!-- 引入vue -->
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<!-- 引入axios -->
+		<script src="https://cdn.staticfile.org/axios/0.18.0/axios.min.js"></script>
+
+	</head>
+	<body>
+		<div id="app">
+			<h1>{{message}}</h1>
+			<button @click="sendAxiosGet1">发送axios-get请求</button>
+			<button @click="sendAxiosGet2">发送axios-get请求</button>
+			<button @click="sendAxiosGet3">发送axios-get请求-简写方式</button>
+			<table border="1">
+				<tr>
+					<th>学号</th>
+					<th>姓名</th>
+					<th>年龄</th>
+					<th>邮箱</th>
+				</tr>
+				<tr v-for="student in studentList">
+					<td>{{ student.id }}</td>
+					<td>{{ student.name }}</td>
+					<td>{{ student.age }}</td>
+					<td>{{ student.email }}</td>
+				</tr>
+			</table>
+		</div>
+	</body>
+	<script type="text/javascript">	
+		// 创建实例
+		var app = new Vue({
+			el:"#app",
+			data:{
+				message: "axios实现ajax请求",
+				studentList:[{
+					id:1,
+					name:'XXX',
+					age:18,
+					email:'XXXX'
+				}]
+			},
+			methods:{
+				sendAxiosGet1:function(){
+					
+					// 此时的this表示vue实例app
+					console.log("===" + this);
+					// 解决this指向问题方式1：将this赋值给变量_this
+					var _this = this;
+					
+					// 使用axios实现ajax请求
+					// axios([options]) .then() .catch()
+					axios({
+						method: "GET",
+						url:"http://rap2api.taobao.org/app/mock/238982/students", // 实际项目中，服务器API地址
+						params:{ // 即将与请求一起发送的 URL 参数  即get请求携带参数方式 			
+							
+						},
+						responseType: 'json', // 表示服务器响应的数据类型 default
+						responseEncoding: 'utf8' // 表示服务器响应的编码格式 default
+					}).then(function(response){ // 服务器响应处理									
+						// 查看响应数据
+						console.log(response);
+						console.log(response.data);	
+						console.log(response.data.students);
+						
+						// 将服务器响应的数据赋值给vue实例data属性中的指定数据
+						// this.studentList = response.data.students;  // 无法赋值成功
+						
+						console.log("匿名函数中this" + this); // 在axios的then函数中的this不是vue实例,而是window对象
+						console.log("匿名函数中_this" + _this); 
+						// 赋值
+						_this.studentList = response.data.students;
+					}).catch(function(error){// 请求失败处理
+						alert("axios fail!");
+					});
+				},
+				sendAxiosGet2:function(){
+					// axios([options]) .then() .catch()
+					axios({
+						method: "GET",
+						url:"http://rap2api.taobao.org/app/mock/238982/students", // 实际项目中，服务器API地址
+						params:{ // 即将与请求一起发送的 URL 参数  即get请求携带参数方式 			
+							
+						},
+						responseType: 'json', // 表示服务器响应的数据类型 default
+						responseEncoding: 'utf8' // 表示服务器响应的编码格式 default
+					}).then(response=>{ // ES6新特性：箭头函数解决this的指向问题
+						 this.studentList = response.data.students;
+					}).catch(error=>{
+						alert("axios fail!");
+					});
+				},
+				sendAxiosGet3:function(){
+					// 发送axios请求，请求方法别名
+					// axios.get(url[,options]);
+					axios.get("http://rap2api.taobao.org/app/mock/238982/students",{
+						params:{ // 即将与请求一起发送的 URL 参数  即get请求携带参数方式
+						
+						},
+						responseType: 'json', // 表示服务器响应的数据类型 default
+						responseEncoding: 'utf8' // 表示服务器响应的编码格式 default
+					}).then(response=>{
+						this.studentList = response.data.students;
+					}).catch(error=>{
+						alert("axios fail!");
+					});
+				}
+			}
+		})
+	</script>
+</html>

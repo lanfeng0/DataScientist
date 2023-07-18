@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>父传子：子组件访问父组件的数据</title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<!-- 调用根实例内部数据 -->
+			<h1>{{ message }}</h1>
+			
+			<!-- 调用子组件,局部组件 -->		
+			<!-- 给子组件的中prop某一个属性传入一个动态的值，prop 可以通过 v-bind 动态赋值 -->
+			<component-a v-bind:parent-message="message"></component-a>
+		</div>
+	</body>
+	<template id="my-template-1">
+		<div>
+			<h3>子组件内部数据data-message:{{message}}</h3>
+			<h3>子组件外部数据props-parentMessage:{{parentMessage}}</h3>
+		</div>
+	</template>
+	<script type="text/javascript">
+		// 注册一个局部组件 通过一个普通的 JavaScript 对象来定义组件：
+		var ComponentA = {
+			// 组件内部数据
+			data: function(){
+				return {
+					// 属性名:属性值
+					message: "我是子组件data的message属性值"
+				}
+			},
+			// 组件外部数据，通过props接收来自父组件的数据
+			props: ['parentMessage'],
+			// 模板
+			template:"#my-template-1"
+		}
+		// 创建vue根实例
+		var app = new Vue({
+			el: "#app",
+			data:{
+				message:"我是vue根实例(父组件)data中的message属性值",
+			},
+			// 定义子组件
+			components:{
+				// 自定义子组件名:组件对象
+				"component-a":ComponentA
+			}
+		})
+	</script>
+</html>

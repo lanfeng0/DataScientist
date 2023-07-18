@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>v-bind属性操作</title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<!-- v-bind属性操作，将数据绑定到指定的DOM属性上 -->
+			<p v-bind:id="dynamicId">v-bind指令实现属性数据绑定</p>
+			<!-- 简写方式 -->
+			<p :id="dynamicId">v-bind指令实现属性数据绑定</p>
+		</div>
+	</body>
+	<script>
+		// 创建一个vue实例
+		var app = new Vue({
+			// 格式: key:value,
+			el: "#app", // 绑定一个页面已经存在的DOM元素作为vue挂载目标
+			data: { // vue实例的数据对象			
+				dynamicId: 'E20152'			
+			}
+		})
+	</script>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>祖先元素、同胞元素、后代元素</title>
+		<script src="js/jquery-3.5.1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				
+				$("#div-1 li").click(function(){
+					
+					// 向上遍历 DOM 树，获取父元素或祖先元素
+					// parent() 方法返回被选元素的直接父元素。
+					var parent = $(this).parent();
+					console.log(parent);
+					
+					// parents() 方法返回被选元素的所有祖先元素，它一路向上直到文档的根元素 (<html>)。
+					var parents = $(this).parents();
+					console.log(parents);
+					
+					// parents("选择器") 使用可选参数来过滤对祖先元素的搜索。
+					var parents = $("#div-1 li").parents("ul");
+					console.log(parents);
+				
+					// parents("选择器") 使用可选参数来过滤对祖先元素的搜索。
+					var parents = $("#div-1 li").parents("#ul-1");
+					console.log(parents);
+				});	
+			
+				$("button").click(function(){
+					// 向下遍历DOM树，获取元素的后代
+					// children() 方法返回被选元素的所有直接子元素
+					var children = $("#div-2").children();
+					console.log(children);
+					
+					// find() 方法返回被选元素的后代元素，一路向下直到最后一个后代。
+					var childrens = $("#div-2").find("*"); // 必须使用*通用选择器表示获取所有的后代
+					console.log(childrens);
+					var childrens = $("#div-2").find("span"); // 找到所有的后代元素为span
+					console.log(childrens);
+					
+				});
+				
+				// 对第3个p标签做操作
+				$("#div-3 p:nth-child(3)").click(function(){
+					
+					// DOM 树进行水平遍历，获取同胞元素
+					// siblings() 方法返回被选元素的所有同胞元素。
+					$(this).siblings().css("background","green"); // p1 p2 p4 p5被作用
+					 
+					// next() 方法返回被选元素的下一个同胞元素。只会返回一个
+					$(this).next().css("background","orange");   // 只有p4被作用
+					
+					// nextAll() 方法返回被选元素的所有跟随的同胞元素。
+					$(this).nextAll().css("background","pink");  // p4和p5被作用
+					
+					// prev() 方法返回被选元素的上一个同胞元素。只会返回一个
+					$(this).prev().css("background","red");      // 只有p2被作用
+					// prevAll() 方法返回被选元素的所有之前的同胞元素。
+					$(this).prevAll().css("background","blue");  // p1和p2被作用
+				});
+			})
+		</script>
+	</head>
+	<body>
+		<h1>演示祖先元素</h1>
+		<div id="div-1">
+			<ul id="ul-1">
+				<li>列表11</li>
+				<li>列表12</li>
+				<li>列表13</li>
+			</ul>
+			<ul id="ul-2">
+				<li>列表24</li>
+				<li>列表25</li>
+				<li>列表26</li>
+			</ul>
+		</div>
+	
+		<h1>演示后代元素</h1>
+		<div id="div-2">
+			<p>
+				p1的内容
+				<span>span11</span><span>span12</span>
+			</p>
+			<p>
+				p2的内容
+				<span>span21</span><span>span22</span>
+			</p>
+		</div>
+		<button>获取指定元素的后代元素</button>
+		
+		<h1>演示同胞元素</h1>
+		<div id="div-3">
+			<p>div-p1</p>
+			<p>div-p2</p>
+			<p>div-p3</p>
+			<p>div-p4</p>
+		    <p>div-p5</p>
+		</div>
+	</body>
+</html>

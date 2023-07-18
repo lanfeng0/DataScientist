@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--引入jQuery.js-->
+		<script src="js/jquery-3.5.1.js" type="text/javascript" charset="utf-8"></script>
+		<!--引入验证框架的js文件-->
+		<script src="js/jquery.validate.js" type="text/javascript" charset="utf-8"></script>
+		<!--引入中文提示符-->
+		<script src="js/messages_zh.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			// 表单提交事件
+			/*$.validator.setDefaults({
+				submitHandler: function() {
+					alert("提交事件!");
+					// 真正的做提交
+					form.submit();
+				}
+			});*/
+			
+			// 验证
+			$().ready(function(){
+				// 表单的验证方法
+				$("#login-form").validate({
+					// 规则
+					rules:{
+						// name: "规则",
+						username:{
+							required: true,
+							maxlength: 8
+						},
+						password:{
+							required: true,
+							rangelength:[8,16]
+						}
+					}
+					,
+					// 错误提示信息
+					messages:{
+						// name: "提示信息"
+						username:{
+							required: "请输入用户名",
+							maxlength: "用户名的长度最大只能8位"
+						},
+						password:{
+							required: "请输入密码",
+							rangelength:"密码长度只能在8到16之间"
+						}
+					},
+					// 提交
+					submitHandler: function() {
+						alert("提交事件!");
+						// 真正的做提交
+						form.submit();
+					}
+				});
+				
+			});
+		</script>
+		<style>
+			.error {
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<form action="index.html" method="post" id="login-form">
+			<input type="text" id="username" value="" placeholder="用户名" name="username"/><br />
+			<input type="password" id="password" value="" placeholder="密码" name="password"/><br />
+			<input type="submit" value="登录"/>
+		</form>
+	</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>第一个vue</title>
+		<!-- 引入vue.js -->
+		<!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script> -->
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<!-- 显示数据的层 -->
+		<div id="app">
+			<!-- 对DIV进行文本插值 模板语法 {{ data数据属性名 }}-->
+			{{ message }}
+		</div>
+	</body>
+	<script>
+		// 创建一个vue实例
+		var app = new Vue({
+			// 格式: key:value,
+			el: "#app",  // 绑定一个页面已经存在的DOM元素作为vue挂载目标
+			data:{       // vue实例的数据对象
+				// 格式: key:value, 属性名:属性值
+				message: "Hello Vue"
+			},
+		})
+	</script>
+</html>

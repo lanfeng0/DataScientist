@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+
+		<body>
+			<a href="http://www.baidu.com" title="提示" id="my-a-1" class="a">超链接-1</a>
+			<hr />
+			<input type="checkbox" value="复选框" />复选框1
+			<input type="checkbox" value="复选框" checked="checked" />复选框2
+			<hr />
+			<!--age不是HTML固有属性，是我们自己定义属性-->
+			<a href="http://www.baidu.com" title="提示" id="my-a-2" class="a" age="18">超链接-2</a>
+		</body>
+		<script src="js/jquery-3.5.1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function() {
+
+				// jQuery操作HTML属性有两种方法：prop 和 attr
+				// prop一般是用于处理固有属性（原生的HTML属性,id name style class title.....）
+				// attr一般是用于处理自定义属性（有开发人员后期自己定义的属性名）
+
+				// 获取固有属性值 prop("属性名") 
+				var href = $('#my-a-1').prop("href");
+				var title = $('#my-a-1').prop("title");
+				console.log("href属性值：" + href);
+				console.log("title属性值：" + title);
+
+				// 设置固有属性值     prop("属性名","属性值") 
+				$('#my-a-1').prop("href", "http://www.taobao.com");
+				// 添加固有属性 prop("属性名","属性值")
+				$('#my-a-1').prop("target", "_blank");
+
+				// 官方推荐不要使用removerProp方法来删除原生的属性（ property ）
+				// 比如checked, disabled, 或者 selected。这将完全移除该属性，一旦移除，不能再次被添加到元素上。使用.prop()来设置这些属性设置为false代替。 			
+
+				// 使用prop处理固有属性checked,返回值为false或true
+				var checked = $(':checkbox:eq(0)').prop("checked");
+				console.log("复选框的选中状态：" + checked); // false
+				var checked = $(':checkbox:eq(1)').prop("checked");
+				console.log("复选框的选中状态：" + checked); // true
+
+				// 使用attr处理固有属性checked返回值不准确，不推荐
+				var checked = $(':checkbox:eq(0)').attr("checked");
+				console.log("复选框的选中状态：" + checked); // 输出的是undefined
+				var checked = $(':checkbox:eq(1)').attr("checked");
+				console.log("复选框的选中状态：" + checked); // 输出是checked
+
+				// prop无法获取自定义属性的值
+				var age2 = $('#my-a-2').prop("age");
+				console.log(age2); //undefined
+
+				// attr一般是用于处理自定义属性
+				// 获取自定义属性的值,只能使用attr()
+				var age = $('#my-a-2').attr("age"); // HTML元素中的age属性是我们自己定义的
+				console.log(age); // 18
+
+				// 添加自定义属性
+				$('#my-a-2').attr("birthday", "1994-05-05");
+
+				// 删除自定义属性
+				$('#my-a-2').removeAttr("age");
+			})
+		</script>
+	</head>
+
+</html>

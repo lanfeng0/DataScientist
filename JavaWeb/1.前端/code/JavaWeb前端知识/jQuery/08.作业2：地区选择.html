@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>地区选择</title>
+		<style type="text/css">
+			#area{
+				background-color: gainsboro;
+			}
+			#area li{
+				width: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="area" >
+			<span id="area-span">北京</span>
+			<ul id="area-ul" style="display: none;">
+				<li>北京</li>
+				<li>福建</li>
+				<li>广东</li>
+				<li>山东</li>
+				<li>重庆</li>
+			</ul>
+		</div>
+	</body>
+	<style>
+		.active{
+			background-color: red;
+		}
+	</style>
+	<script src="js/jquery-3.5.1.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+//	1：地区列表一开始是隐藏的,当鼠标移入到地区DIV中打开列表
+//	2: 选择地区,将选中的地区加上红色背景颜色
+//	3: 选择地区,将选中的地区文本显示在span上
+    	$(function(){
+    	
+    		// 事件绑定 jQuery对象.action().action()....
+    		$("#area").mouseenter(function(){
+    			// 1.显示隐藏的地区列表
+    			// 方式1：通过css样式设置显示效果
+    			// $("#area-ul").css("display","block"); 
+    			// 方式2：通过show()设置显示效果
+    			$("#area-ul").show();
+   			
+    			// 2.获取li列表，对其绑定点击事件
+    			$("#area-ul li").click(function(){
+    				// 获取当前点中的文本，将文本赋值在指定的span元素上
+    				$("#area-span").text($(this).text());
+    				
+    				/*  			
+    				// 设置当前元素的选中样式
+    				$(this).css("background","red");
+    				// 获取当前元素的其他兄弟
+    				$(this).siblings().css("background","");
+    				*/
+    				
+    				// 设置当前元素的选中样式,添加指定样式
+    				$(this).addClass("active");
+    				// 获取当前元素的其他兄弟,清除指定样式
+    				$(this).siblings().removeClass("active");
+    			});
+    		}).mouseleave(function(){
+    			// 方式1：通过css样式设置隐藏效果
+    			// $("#area-ul").css("display","none"); 
+    			// 方式2：通过show()设置隐藏效果
+    			$("#area-ul").hide();
+    		});
+    	})
+	
+	</script>
+</html>

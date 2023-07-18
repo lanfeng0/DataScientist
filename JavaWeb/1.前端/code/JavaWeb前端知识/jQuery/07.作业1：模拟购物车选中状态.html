@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>模拟购物车选中状态</title>
+	</head>
+	<body>
+		<input type="checkbox" name="" id="" value="" />全选
+		<hr />
+		<input type="checkbox" name="cars" id="" value="兰博基尼"  />兰博基尼
+		<input type="checkbox" name="cars" id="" value="法拉利"   />法拉利
+		<input type="checkbox" name="cars" id="" value="和谐号" />和谐号
+		<input type="checkbox" name="cars" id="" value="波音747" />波音747
+	</body>
+	<script src="js/jquery-3.5.1.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function(){
+			// 表单选择器
+			$(":checkbox:eq(0)").click(function(){
+				// 属性选择器 将全选复选框的checked属性值赋值给指定的复选框组
+				$(":checkbox[name=cars]").prop("checked",$(this).prop("checked"));
+			});
+			
+			$(":checkbox[name=cars]").click(function(){
+				
+				// 获取复选框组的个数
+				var count = $(":checkbox[name=cars]").length;
+				// 获取复选框组被选中的个数
+				var checkCount = $(":checkbox[name=cars]:checked").length;
+				
+//				if(count == checkCount){
+//					$(":checkbox:eq(0)").prop("checked",true);
+//				}else{
+//					$(":checkbox:eq(0)").prop("checked",false);
+//				}
+				// 
+				$(":checkbox:eq(0)").prop("checked",count == checkCount);
+			});
+		})
+	</script>
+</html>

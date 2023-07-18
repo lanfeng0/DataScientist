@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>引用模板template</title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<h1>{{message}}</h1>
+			<!-- 调用全局组件 -->
+			<global-component-a></global-component-a>
+		</div>
+	</body>
+	<!-- 在 template 标签中定义HTML模板 -->
+	<template id="my-template-1">
+		<div><h3>{{info}}</h3><h4>标题</h4><p>正文1</p><a href=\"\">链接</a></div>
+	</template>
+	<script>
+		// 注册全局组件,可以被所有new Vue根实例所调用
+		// Vue.component("组件名",options)
+		Vue.component("global-component-a",{
+			// 在组件中 data 必须是一个函数
+			data:function(){  
+				return {
+					// 内部数据属性名:属性值
+					info: '全局组件'
+				}
+			},
+			// 模板：其实就一段复用的HTML片段，通过ID指定到组件内的template属性上；
+			template:"#my-template-1"
+		});
+		
+		// 创建vue根实例
+		var app = new Vue({
+			el:"#app",
+			data:{
+				message:"vue-1调用全局组件"
+			}
+		});
+	</script>
+</html>

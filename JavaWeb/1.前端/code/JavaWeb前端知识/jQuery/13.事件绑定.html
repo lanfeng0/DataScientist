@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>事件绑定</title>
+		<script src="js/jquery-3.5.1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				// 1. $(selector).click()：在被选元素上绑定一个单击事件,有且只有一个单击事件。不能运用未来元素
+				$("#btn-1").click(function(){
+					console.log("btn-1点击事件");
+				});
+				$("#btn-1").mouseenter(function(){
+					console.log("btn-1鼠标移入事件");
+				});
+				
+				// 2.通过事件处理on()方法在被选元素及子元素上添加一个或多个事件处理程序。
+				// 优点1：多个事件的回调函数是同一个的
+				$("#btn-2").on("click mouseenter",function(){
+					console.log("btn-2鼠标点击+移入事件");
+				});
+				
+				// 通过点击事件，在页面中通过脚本动态生成一个HTML元素
+				$("#btn-3").click(function(){
+					$("body").append("<button id='btn-4'>脚本动态生成的按钮btn-4</button>");
+					$("body").append("<button id='btn-4-2'>脚本动态生成的按钮btn-4-2</button>");
+				})
+				// 此时对动态按钮直接绑定click事件无效的...
+				/*
+				$("#btn-4").click(function(){
+					console.log("对动态生成的按钮4号绑定事件");
+				})
+				*/
+				// 优点2:on()方法适用于当前和未来的元素..
+				// 书写语法： $(document).on("事件类型","动态生成元素",function)
+				$(document).on("click","#btn-4",function(){
+					console.log("对动态生成的按钮4号绑定事件");
+				});
+								
+				// 3. off() 方法通常用于移除通过 on() 方法添加的事件处理程序。
+				$("#btn-5").click(function(){
+					// 对目标元素移出事件
+					$(document).off("click","#btn-4"); // 对动态生成的btn-4移出click事件
+				});
+				
+				// 4. one() 方法为被选元素添加一个或多个事件处理程序，并规定当事件发生时运行的函数。
+				// 当使用 one() 方法时，每个元素只能运行一次事件处理程序函数
+				// 对已经存在的HTML元素使用one
+				$("#btn-6").one("click",function(){
+					console.log("one只能点击一次");
+				});
+				// 对未来的元素使用one
+				$(document).one("click","#btn-4-2",function(){
+					console.log("one只能点击一次");
+				});
+				
+			});
+		</script>
+	</head>
+	<body>
+		<button id="btn-1">事件()函数对被选元素绑定事件</button>
+		<button id="btn-2">on()函数对被选元素绑定事件</button>
+		<button id="btn-3">动态添加一个按钮</button>
+		<hr />
+		<button id="btn-5">off()移出事件</button>
+		<button id="btn-6">只能点击一次</button>
+	</body>
+</html>

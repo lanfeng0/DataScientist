@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>初版购物车</title>
+		<script src="js/jquery-3.5.1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				// 声明添加的车的对象
+				var car = {
+					name:"五菱宏光",
+					price:5
+				}
+				
+				// 对添加按钮(当前已经存在的HTML元素)做点击事件
+				$("#add").click(function(){
+					
+					// 输入车的信息提示框
+					car.name = prompt("请输入车","");
+					car.price = prompt("请输入价格","");
+					
+					// 往指定的表格中内部插入HTML元素
+					$("#shopping-cart").append("<tr><td>"+
+							car.name+
+							"</td><td>"+
+							car.price+
+							"</td><td><a href=\"#\"  class=\"delete\">删除</a> <a href=\"#\" class=\"update\">修改</a></td></tr>");
+				});
+				
+				// 对删除按钮(未来的元素,由脚本动态生成)做点击事件
+				$(document).on("click",".delete",function(){
+					 // 删除当前行
+//					 $(this).parent().parent().remove();
+					 $(this).parents("tr").remove();
+				});
+				
+				// 对统计按钮(当前已经存在的HTML元素)做点击事件
+				$("#calc").click(function(){
+					
+					var total = 0;
+					// 遍历所有的价格列
+					$("#shopping-cart tr td:nth-child(2)").each(function(){
+						// eval()直接将数值字符串做运算
+						total += eval($(this).text());
+					});
+					
+					// 将总价填充到指定的span上
+					$("#total").text(total);
+				});
+				
+			})
+		</script>
+	</head>
+
+	<body>
+		<table border="" cellspacing="" cellpadding="" id="shopping-cart">
+			<tr>
+				<th>商品名</th>
+				<th>商品价格</th>
+				<th>操作</th>
+			</tr>
+			<!--<tr>
+				<td>劳斯莱斯</td>
+				<td>10</td>
+				<td><a href="#" class="delete">删除</a> <a href="#" class="update">修改</a></td>
+			</tr>
+			<tr>
+				<td>R8</td>
+				<td>20</td>
+				<td><a href="#" class="delete">删除</a> <a href="#" class="update">修改</a></td>
+			</tr>-->
+		</table>
+		<button id="add">添加一辆车</button>
+		<button id="calc">统计</button>
+		<span id="total">0</span>
+	</body>
+
+</html>

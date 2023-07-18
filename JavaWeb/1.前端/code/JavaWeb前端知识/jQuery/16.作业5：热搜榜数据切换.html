@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>热搜榜数据切换</title>
+		<style type="text/css">
+			.card-wrap {
+				width: 400px;
+			}
+
+			.card-head {
+				font-size: 14px;
+				font-weight: normal;
+				height: 38px;
+				line-height: 38px;
+				border-bottom: 1px solid #eee;
+				padding: 0 12px 0 11px;
+			}
+
+			.fr {
+				float: right;
+			}
+
+			.s-pg16 {
+				padding: 16px;
+			}
+
+			ul,
+			li {
+				list-style: none;
+			}
+
+			.card-hotrank li {
+				margin-bottom: 8px;
+				font-size: 14px;
+				line-height: 20px;
+			}
+
+			.card-hotrank li .num.top {
+				color: #f60;
+			}
+
+			.card-hotrank li .num {
+				display: block;
+				float: left;
+				width: 12px;
+				text-align: center;
+				margin-top: 1px;
+			}
+
+			.card-hotrank li p {
+				margin-left: 24px;
+			}
+
+			.card-hotrank li p .val {
+				margin-left: 3px;
+				float: right;
+				color: #808080;
+			}
+
+			.card-hotrank li a {
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				display: inline-block;
+				max-width: 170px;
+				vertical-align: middle;
+			}
+
+			a {
+				text-decoration: none;
+				cursor: pointer;
+				outline: none;
+				color: #333;
+			}
+
+			.card-hotrank li p .icon-txt {
+				font-size: 12px;
+				vertical-align: middle;
+				margin-left: 2px;
+			}
+
+			.icon-txt-hot {
+				background: #ff9406;
+			}
+
+			.icon-txt {
+				display: inline-block;
+				width: 16px;
+				height: 16px;
+				line-height: 16px;
+				color: #fff;
+				border-radius: 2px;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 热搜榜 -->
+		<div class="card-wrap">
+			<div id="" class="card card-hotrank">
+				<div class="card-head">
+					<a href="javascript:;" class="fr" id="more">更多</a>
+					<h4>搜索热点</h4>
+
+				</div>
+				<div class="card-content s-pg16">
+					<ul>
+						<li>
+							<span class="num top">1</span>
+							<p>
+								<span class="val">235万</span>
+								<a href="">警方教你春节防诈骗</a>
+								<i class="icon-txt icon-txt-hot">热</i>
+							</p>
+						</li>
+						<li>
+							<span class="num top">2</span>
+							<p>
+								<span class="val">235万</span>
+								<a href="">警方教你春节防诈骗</a>
+								<i class="icon-txt icon-txt-hot">热</i>
+							</p>
+						</li>
+						<li>
+							<span class="num top">3</span>
+							<p>
+								<span class="val">235万</span>
+								<a href="">警方教你春节防诈骗</a>
+								<i class="icon-txt icon-txt-hot">热</i>
+							</p>
+						</li>
+						<li>
+							<span class="num top">4</span>
+							<p>
+								<span class="val">235万</span>
+								<a href="">警方教你春节防诈骗</a>
+								<i class="icon-txt icon-txt-hot">热</i>
+							</p>
+						</li>
+						<li>
+							<span class="num top">5</span>
+							<p>
+								<span class="val">235万</span>
+								<a href="">警方教你春节防诈骗</a>
+								<i class="icon-txt icon-txt-hot">热</i>
+							</p>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="js/jquery-3.5.1.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+			// 1.页面进入加载hotrank1.json数据
+			$.ajax({
+				async: true,
+				type: "GET",
+				url: "hotrank1.json", 
+				data: {},
+				contentType: "application/x-www-form-urlencoded", 
+				dataType: "json",
+				success: function(data, status, xhr) { 
+					// 将数据显示在指定的元素上..
+					let content = "";
+					for (var i = 0; i < data.length; i++) {
+						var hotrank = data[i];
+						content +=
+							`
+							<li>
+								<span class="num top">${i+1}</span>
+								<p>
+									<span class="val">${hotrank.num}</span>
+									<a href="">${hotrank.title}</a>
+									<i class="icon-txt icon-txt-hot">热</i>
+								</p>
+							</li>
+						 `
+					}
+					// 设置HTML内容
+					console.log(content)
+					$(".card-content ul").html(content);
+				},
+				error: function(xhr, status, error) { // 当请求失败要运行的函数。
+					alert("AJAX请求失败!");
+				}
+			});
+
+       		$("#more").click(function(){
+				$.ajax({
+					async: true,
+					type: "GET",
+					url: "hotrank2.json", 
+					data: {},
+					contentType: "application/x-www-form-urlencoded", 
+					dataType: "json", 
+					success: function(data, status, xhr) { 
+						// 将数据显示在指定的元素上..
+						let content = "";
+						for (var i = 0; i < data.length; i++) {
+							var hotrank = data[i];
+							content +=
+								`
+								<li>
+									<span class="num top">${i+1}</span>
+									<p>
+										<span class="val">${hotrank.num}</span>
+										<a href="">${hotrank.title}</a>
+										<i class="icon-txt icon-txt-hot">热</i>
+									</p>
+								</li>
+							 `
+						}
+						// 设置HTML内容
+						console.log(content)
+						$(".card-content ul").html(content);
+					},
+					error: function(xhr, status, error) { // 当请求失败要运行的函数。
+						alert("AJAX请求失败!");
+					}
+				});
+			})
+	</script>
+</html>

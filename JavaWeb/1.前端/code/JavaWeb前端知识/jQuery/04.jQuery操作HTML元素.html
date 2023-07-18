@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>jQuery操作HTML元素</title>
+		<script src="js/jquery-3.5.1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				
+				// 1.对元素内容的操作
+				// 1.1获取元素内容文本值
+				var content = $("button").text();
+				console.log("获取文本值：" +  content);
+				// 1.2设置元素内容文本值
+				$("button").text("设置文本");
+				
+				// 1.3获取表单value值
+				var content = $(":text").val();
+				console.log("获取value值：" +  content);
+				// 1.4.设置表单value值
+				$(":text").val("设置value值"); 
+				
+				
+				// 2.各种选择器
+				console.log( $("input").length ); // 2				
+				console.log( $("input[type='text']").length ); // 1
+				
+				// 表单选择器:input,选择所有 input, textarea, select 和 button 元素. 
+				console.log( $(":input").length   ); // 3 			
+				console.log( $(":text").val()     ); // text				
+				console.log( $(":password").val() ); // password			
+				console.log( $(":button").length ); //  2 包含<button> <input type="button">
+				
+				// :eq(index) 在匹配的集合中选择索引值为index的元素。 从0开始计数
+				$("ul li").css("background-color","red");
+				// 对第一个li
+				$("ul li:first").css("background-color","beige"); // :first匹配第一个
+				$("ul li:nth-child(1)").css("background-color","blueviolet"); // :nth-child(1)匹配第一个,参数从1开始
+				$("ul li:eq(0)").css("background-color","gold"); // :eq(0)匹配索引值，从0开始
+				$("ul li").eq(0).css("background-color","greenyellow"); // eq()函数匹配索引值，从0开始
+				
+				// 对第2个列表
+				$("ul li:nth-child(2)").css("background-color","blueviolet");
+				$("ul li:eq(1)").css("background-color","gold");
+				$("ul li").eq(1).css("background-color","greenyellow");
+				
+				
+				// 3.jQuery操作CSS样式
+				// 1. 单个样式：jQuery对象.css("样式名","样式值");
+				$("ul li").css("background-color","red");
+				// 2. 多个样式：jQuery对象.css( {"样式名":"样式值","样式名":"样式值"});
+				$("ul li").css( { "color":"white","font-size":"12px"});
+				
+				// 4.jQuery操作类样式
+				// 添加多个样式
+				$("button").addClass("a");
+				$("button").addClass("b");
+				$("button").addClass("a b");
+				
+				// 删除样式
+				$("button").removeClass("b");
+				
+				
+				$("button").click(function(){
+					// 切换样式
+					$(this).toggleClass("c");
+				});
+				
+				// 判断指定元素是否包含某一个类样式 hasClass()
+				if($("button").hasClass("a")){
+					console.log("有");
+				}else{
+					console.log("没有");
+				}
+			});
+		</script>
+		<style>
+		   .a{
+		   	 border: none;
+		   }
+		   .b{
+		   	 background: goldenrod;
+		   }
+		   .c{
+		   	 background: green;
+		   }
+		</style>
+	</head>
+	<body>
+		<button>按钮</button>
+		<input type="text" value="text"/>
+		<input type="password" value="password"/>
+		<input type="button" id="" value="input-button" />
+		<hr />
+		<ul>
+			<li>列表项1</li>
+			<li>列表项2</li>
+			<li>列表项3</li>
+			<li>列表项4</li>
+		</ul>
+		<input type="week" name="" id="" value="" />
+	</body>
+</html>

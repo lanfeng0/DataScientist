@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>v-model表单双向数据绑定</title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<!-- 单行文本 -->
+			<input type="text" v-model="message"  >
+			<p>message: {{ message }}</p>
+			
+			<!-- 多行文本 -->
+			<textarea v-model="message"></textarea>
+			<p>message: {{ message }}</p>
+			
+			<!-- 单选框 -->
+			<input type="radio" v-model="gender"  value="男">男</input>
+			<input type="radio" v-model="gender"  value="女">女</input>
+			<p>gender: {{ gender }}</p>
+			
+			<!-- 复选框 -->
+			<input type="checkbox"  id="" value="唱歌" v-model="hobbys"/>唱歌
+			<input type="checkbox"  id="" value="跳舞" v-model="hobbys"/>跳舞
+			<input type="checkbox"  id="" value="RAP" v-model="hobbys"/>RAP
+			<p>hobbys: {{ hobbys }}</p>
+			
+			<!-- 下拉框 -->
+			<select name="" v-model="grade">
+				<option value="">请选择</option>
+				<option value="本科">本科</option>
+				<option value="大专">大专</option>
+				<option value="高中">高中</option>
+			</select>
+			<p>grade: {{ grade }}</p>
+			
+			<hr />
+			修饰符：<br />
+			在默认情况下，v-model 在每次 input 事件触发后将输入框的值与数据进行同步 (除了上述输入法组合文字时)。
+			你可以添加 lazy 修饰符，从而转为在 change 事件_之后_进行同步：
+			<input type="text" v-model.lazy="message" >
+			<p>message: {{ message }}</p>
+			
+			如果要自动过滤用户输入的首尾空白字符，可以给 v-model 添加 trim 修饰符：
+			<input type="text" v-model.trim="message"  >
+			<p>message: {{ message }}</p>
+			
+			如果想自动将用户的输入值转为数值类型，可以给 v-model 添加 number 修饰符：
+			<input v-model.number="age" type="number">
+			<p>age: {{ age+1 }}</p>
+		</div>
+	</body>
+	<script>
+		var app = new Vue({
+			el: "#app",
+			data:{
+				message:'初始值',
+				gender: '男',
+				hobbys: ['唱歌'],
+				grade:"本科",
+				age: 5
+			}
+		});
+		
+	</script>
+</html>

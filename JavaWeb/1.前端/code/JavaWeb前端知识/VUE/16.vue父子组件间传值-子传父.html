@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>子传父：父组件访问子组件的数据</title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<!-- 父组件 -->
+		<div id="app">
+			<p>父组件中num：{{ num }}</p>
+			<!-- 调用子组件
+			:num="num" 表示将父组件num值传递给子组件的prop属性num
+			@increment-num="incrementNum" 监听子组件触发的事件，并在父组件中定义方法，用来获取数据
+			@decrement-num="decrementNum" 监听子组件触发的事件，并在父组件中定义方法，用来获取数据 -->
+			<v-counter :num="num" @increment-num="incrementNum" @decrement-num="decrementNum" ></v-counter>
+		</div>
+	</body>
+	<template id="my-template-1">
+		<div>
+			<button  @click="increment">++</button>
+			<button  @click="decrement">--</button>
+			<p>num: {{  num  }}</p>
+		</div>
+	</template>
+	<script type="text/javascript">
+		// 注册一个局部组件 通过一个普通的 JavaScript 对象来定义组件：
+		var Counter = {
+			// 模板
+			template:"#my-template-1",
+			// 组件内部数据
+			data: function(){
+				return {
+					
+				}
+			},
+			// 组件外部数据，通过props接收来自父组件的数据
+			props: ['num'],
+			// 方法
+			methods:{
+				increment:function(){
+					// this.num++; // 可以+但是会报错，因为vue单向数据流，子组件中不允许直接修改父组件的数据
+					// 在子组件中使用 vm.$emit(事件名,数据) 触发一个自定义事件，事件名自定义
+					this.$emit("increment-num",this.num); // 表示向父组件发送一个事件
+				},
+				decrement:function(){
+					this.$emit("decrement-num",this.num); // 表示向父组件发送一个事件
+				}
+			}
+		}
+		// 创建vue根实例
+		var app = new Vue({
+			el: "#app",
+			data:{
+				num:1,
+			},
+			// 定义子组件
+			components:{
+				// 自定义子组件名:组件对象
+				"v-counter":Counter
+			},
+			methods:{
+				incrementNum:function(num){
+					console.log("---" + num);// 获取子组件事件传递过来的数据
+					this.num++ ;
+				},
+				decrementNum:function(){
+					console.log("---" + num)
+					this.num-- ;
+				}
+			}
+		})
+	</script>
+</html>

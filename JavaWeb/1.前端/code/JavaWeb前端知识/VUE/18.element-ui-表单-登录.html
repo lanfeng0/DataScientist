@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>element-ui组件库</title>
+		<!-- 引入vue.js -->
+		<script src="./js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<!-- 引入axios -->
+		<script src="https://cdn.staticfile.org/axios/0.18.0/axios.min.js"></script>
+		<!-- 引入Qs，解决post跨域问题 -->
+		<script src="https://cdn.bootcss.com/qs/6.5.1/qs.min.js"></script>
+		<!-- 引入element-ui样式 -->
+		<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+		<!-- 引入element-ui组件库 -->
+		<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
+				<el-form-item label="用户名" prop="name">
+					<el-input v-model="ruleForm.name"></el-input>
+				</el-form-item>
+				<el-form-item label="密码" prop="password">
+					<el-input v-model="ruleForm.password" type="password"></el-input>
+				</el-form-item>				
+				<el-form-item label="记住密码" prop="remember">
+					<el-switch v-model="ruleForm.remember"></el-switch>
+				</el-form-item>			
+				<el-form-item>
+					<el-button type="primary" @click="submitForm('ruleForm')">登录</el-button>
+					<el-button @click="resetForm('ruleForm')">重置</el-button>
+				</el-form-item>
+			</el-form>
+		</div>
+	</body>
+	<script>
+		var app = new Vue({
+			el: "#app",
+			data: {
+				ruleForm: {
+					name: '',
+					password: '',
+					remember: true
+				},
+				rules: {
+					name: [{
+							required: true,
+							message: '请输入用户名',
+							trigger: 'blur'
+						},
+						{
+							min: 3,
+							max: 5,
+							message: '长度在 3 到 5 个字符',
+							trigger: 'blur'
+						}
+					],
+					password:[{
+						required: true,
+						message: '请输入密码',
+						trigger: 'blur'
+						},{
+							min: 5,
+							max: 10,
+							message: '长度在 5 到 10 个字符',
+							trigger: 'blur'
+						}
+					]
+				}
+			},
+		methods: {
+			submitForm(formName) {
+				this.$refs[formName].validate((valid) => {
+					if (valid) {
+						alert('submit!');
+						// 发送axios请求，进行登录操作
+						axios({
+							method:"POST",
+							url:"http://192.168.4.6:8888/user/",
+							data:Qs.stringify({
+								op:"login",
+								userName: this.ruleForm.name,
+								password: this.ruleForm.password
+							}),
+							headers:{
+								"Content-Type":"application/x-www-form-urlencoded"
+							}
+						}).then(response=>{
+							// 判断是否登录成功
+							// 如果登录成功 并 选择记住密码 this.ruleForm.remember
+							if(this.ruleForm.remember == true){
+								// 将用户名和密码存储在localStorage
+							}
+							// 如果不成功，提示用户名或密码错误
+							
+						}).catch(error=>{
+							alert("axios异步请求失败");
+						});
+					} else {
+						alert('error submit!');
+						return false;
+					}
+				});
+			},
+			resetForm(formName) {
+				this.$refs[formName].resetFields();
+			}
+		}
+		})
+	</script>
+</html>

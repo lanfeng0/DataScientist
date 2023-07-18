@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>循环</title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<!-- 1. v-for 来遍历一个数组
+			 v-for 指令需要使用 item in items 形式的特殊语法，其中 items 是源数据数组，而 item 则是被迭代的数组元素的别名。 -->
+			<ul>
+				<li v-for="item in arr">
+					{{ item }}
+				</li>
+			</ul>
+
+			<!-- 2. v-for 支持第二个参数，index表示索引。 -->
+			<ul>
+				<li v-for="(item,index) in arr" :key="index">
+					{{ index }} {{ item }}
+				</li>
+			</ul>
+
+			<hr />
+			<!-- 3. v-for 来遍历一个对象数组-->
+			<ul>
+				<li v-for="item in objs">{{item.name}}</li>
+			</ul>
+			<hr />
+			<!-- 4. v-for 来遍历一个对象数组-->
+			<ul>
+				<li v-for="(item, index) in objs" :key="item.id">{{index}} - {{item.id}} - {{item.name}}</li>
+			</ul>
+			
+			<table border="1">
+				<tr>
+					<th>用户编号</th>
+					<th>用户名</th>
+				</tr>
+				<tr v-for="item in objs">
+					<td>{{ item.id }}</td>
+					<td>{{ item.name}}</td>
+				</tr>
+			</table>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var app = new Vue({
+			el: "#app",
+			data: {
+				// 格式:key:value
+				info: "父作用域中的属性",
+				// 1.value是一个数组,使用[]表示一个数组
+				arr: [
+					'a1', 'a2', 'a3'
+				],
+				// 2.value是对象数组,用[]表示数组，用{}表示对象，对象中每一对属性key:value
+				objs: [{
+						id: 1,
+						name: 'A'
+					},
+					{
+						id: 2,
+						name: 'B'
+					},
+					{
+						id: 3,
+						name: 'C'
+					}
+				]
+			}
+		});
+	</script>
+</html>

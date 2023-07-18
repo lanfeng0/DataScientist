@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery实现AJAX异步请求</title>
+	</head>
+	<body>
+		<div id="myDiv">使用jQuery AJAX 获取该文本内容</div>
+		<button type="button" id="btn">使用jQuery-$.ajax()方法</button>
+		<hr />
+		<div id="myDiv2">使用jQuery AJAX 获取JSON内容</div>
+		<button type="button" id="btn2">使用jQuery-$.ajax()方法</button>
+		<hr />
+		<div id="myDiv3">使用jQuery AJAX 获取JSON内容</div>
+		<button type="button" id="btn3">使用jQuery-$.get()方法</button>
+		<hr />
+		<div id="myDiv4">使用jQuery AJAX 获取JSON内容</div>
+		<button type="button" id="btn4">使用jQuery-$.post()方法</button>
+		<hr />
+		<div id="myDiv5">使用jQuery AJAX 获取JSON内容</div>
+		<button type="button" id="btn5">使用jQuery-$.getJSON()方法</button>
+
+	</body>
+	<script src="js/jquery-3.5.1.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+		$("#btn").click(function() {
+			$.ajax({
+				async: true, // 表示请求是否异步处理。默认是 true。
+				type: "GET", // 规定请求的类型（GET 或 POST或PUT或DELETE）
+				url: "ajax_info.txt", // 规定发送请求的 URL
+				data: { // 规定要发送到服务器的数据
+					// 格式  name:value, 
+					name: "ajax",
+					age: 10
+				},
+				contentType: "application/x-www-form-urlencoded", // 发送数据到服务器时所使用的内容类型。默认是："application/x-www-form-urlencoded"
+				dataType: "text", // 预期的服务器响应的数据类型：text、html、json、xml、jsonp、script
+				success: function(data, status, xhr) { // 当请求成功时运行的函数。data表示由服务器返回的数据
+					// 将数据显示在指定的元素上..
+					console.log(data);
+					$("#myDiv").text(data);
+				},
+				error: function(xhr, status, error) { // 当请求失败要运行的函数。
+					alert("AJAX请求失败!");
+				}
+			});
+		})
+
+		$("#btn2").click(function() {
+			$.ajax({
+				async: true,
+				type: "get",
+				url: "ajax_info.json",
+				data: {
+					// 格式  name:value, 
+					name: "ajax",
+					age: 10
+				},
+				contentType: "application/x-www-form-urlencoded",
+				dataType: "json", // 表示接收JSON数据,自动解析成js对象
+				success: function(data, status, xhr) {
+					// 将数据显示在指定的元素上..
+					console.log(data);
+					$("#myDiv2").text(data);
+				},
+				error: function(xhr, status, error) {
+					alert("AJAX请求失败!");
+				}
+			});
+		})
+
+		$("#btn3").click(function() {
+			// $.get(URL,data,function(data, status, xhr){},type)
+			// 发送get请求，并接收服务器端返回数据
+			$.get("ajax_info.json", {
+				name: "ajax",
+				age: 10
+			}, function(data, status, xhr) {
+				console.log(data);
+				$("#myDiv3").text(data);
+			}, "json");
+		})
+
+		$("#btn4").click(function() {
+			// $.post(URL,data,function(data, status, xhr){},type)
+			// 发送post请求，并接收服务器端返回数据
+			$.post("ajax_info.json", {
+				name: "ajax",
+				age: 10
+			}, function(data, status, xhr) {
+				console.log(data);
+				$("#myDiv4").text(data);
+			}, "json");
+		})
+
+		$("#btn5").click(function() {
+			// $.getJSON(URL,data,function(data, status, xhr){})
+			// 发送GET请求，并接收服务器端返回JSON数据
+			$.getJSON("ajax_info.json", {
+				name: "ajax",
+				age: 10
+			}, function(data, status, xhr) {
+				console.log(data);
+				$("#myDiv5").text(data);
+			});
+		})
+	</script>
+</html>

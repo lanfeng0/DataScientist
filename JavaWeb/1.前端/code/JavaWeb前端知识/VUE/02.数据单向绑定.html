@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>模板语法-数据单向绑定</title>
+		<!-- 引入vue.js -->
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>	
+		<div id="app">
+			<!-- 模板语法 -->
+			<!-- 1.单向绑定 -->
+			<!-- 1.1 Mustache 双大括号语法{{ data数据属性名 }} 插入文本值 --> 
+			<p>Using mustaches: {{ message }}</p>
+			
+			<!-- 1.2.v-html指令 插入HTML代码  -->
+			<p>Using v-html directive: <span v-html="rawHtml"></span></p>
+			
+			<!-- 1.3.v-text指令 插入文本  -->
+			<p>Using v-text directive: <span v-text="rawHtml"></span></p>
+			
+			<!-- 1.4 v-once指令 表示数据只绑定一次-->
+			<p v-once>Using v-once directive:{{ message }}</p>
+				
+		</div>
+	</body>
+	<script>
+		// 创建一个vue实例
+		var app = new Vue({
+			// 格式: key:value,
+			el: "#app",  // 绑定一个页面已经存在的DOM元素作为vue挂载目标
+			data:{       // vue实例的数据对象
+				// 格式: key:value,
+				message: "Hello Vue",
+				rawHtml: "<a href=''>超链接</a>"	
+			}
+		})
+	</script>
+</html>

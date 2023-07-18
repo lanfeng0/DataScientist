@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>遍历</title>
+	</head>
+	<body>
+		<ul>
+			<li>列表1</li>
+			<li>列表2</li>
+			<li>列表3</li>
+			<li>列表4</li>
+		</ul>
+	</body>
+	<script src="js/jquery-3.5.1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				
+				// 遍历HTML元素的集合 DOM元素集合.each()
+				$("ul li").each(function(){
+					console.log($(this).text() );
+				});
+				
+				
+				// 希望终止each循环,使用return false
+				$("ul li").each(function(){
+					if($(this).text() == "列表2"){						
+						return false; // 表示结束方法
+					}
+					console.log( $(this).text() );
+				});
+				
+				
+				// 遍历数组或Object对象集合
+				var as = ["A","V","D"];
+				
+				// 之前的jvascript做法
+				for(var i = 0; i < as.length; i++){
+					console.log(as[i]);
+				}
+				for(var i in as){ // i只是索引
+					console.log(as[i]);
+				}
+				as.forEach(function(e){
+					console.log(e);
+				});
+				
+				// jQuery提供遍历数组的方法
+				// $.each(遍历的集合,回调函数);
+				$.each(as,function(index,e){ // 回调函数的参数,第1个参数表示遍历的索引0开始,第2个参数表示遍历的每一个元素
+					console.log(index + "---" + e );
+				});
+						
+				// 声明javascript对象
+				var user1 = {
+					name: "ccc1",
+					age: 18
+				}
+				var user2 = {
+					name: "ccc2",
+					age: 28
+				}
+				var as2 = new Array();
+				as2.push(user1);
+				as2.push(user2);
+				
+				// 遍历对象的属性
+				$.each(as2,function(index,user){
+					console.log(user);
+					console.log(user.name + "," + user.age);
+				})
+				
+			})
+		</script>
+</html>

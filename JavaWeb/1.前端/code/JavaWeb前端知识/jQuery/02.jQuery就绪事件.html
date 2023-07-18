@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<!--引入jQuery.js文件-->
+		<script src="js/jquery-3.5.1.js" type="text/javascript" charset="utf-8"></script>
+		
+		<!--引入网络CDN资源-->
+		<!--<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js" type="text/javascript" charset="utf-8"></script>-->
+		<!--<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>-->
+		<script type="text/javascript">
+		
+			// js的页面加载事件
+			window.onload = function(){
+				var content = document.getElementById("d").innerText;
+				console.log("onload-1:" + content);
+			}
+			
+			// 以最后一次定义的onload事件函数为准，15行的事件无效..
+			window.onload = function(){
+				var content = document.getElementById("d").innerText;
+				console.log("onload-2:" + content);
+			}
+			
+			// 文档就绪事件：表示当页面加载完成之后执行的代码...
+			$(document).ready(function(){
+				// 书写脚本代码
+				console.log("就绪事件1");
+				// 获取HTML元素
+				var content = $("#d").text();
+				console.log(content)
+			});
+			
+			// 文档就绪事件：表示当页面加载完成之后执行的代码...
+			$(document).ready(function(){
+				// 书写脚本代码
+				console.log("就绪事件2");
+				// 获取HTML元素
+				var content = $("#d").text();
+				console.log(content)
+			});
+			
+			// 文档就绪事件的简写：
+			$(function(){
+				// 开始jQuery代码...
+				// 书写脚本代码
+				console.log("就绪事件3");
+				// 获取HTML元素
+				var content = $("#d").text();
+				console.log(content)
+			})
+		</script>
+	</head>
+	<body>
+		<div id="d">DIV</div>
+	</body>
+</html>

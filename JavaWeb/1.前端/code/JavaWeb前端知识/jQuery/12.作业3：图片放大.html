@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>图片放大</title>
+		<style type="text/css">
+			img{
+				width: 200px;
+				height: 200px;
+			}
+			
+			.showImg {
+				width: 400px;
+				height: 400px;
+				/*通过css将元素位于页面中央*/
+				position: absolute;
+				left: 50%;
+				top:50%;
+				margin-left: -200px;
+				margin-top: -200px;
+			}
+			.showImg img{
+				width: 400px;
+				height: 400px;
+			}
+		</style>
+		<script src="js/jquery-3.5.1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				// 对图片做鼠标移入和移出事件
+				$('#div-1 img').mouseenter(function(){
+					// 获取当前图片的src属性
+					var src = $(this).prop("src");
+					// 创建一个新的层,显示在指定的位置,中间
+					$("body").append("<div class=\"showImg\"><img src=\"" + src + "\" /></div>");
+					
+				}).mouseleave(function(){
+					// 删除动态的HTML元素
+					$(".showImg").remove();
+				
+				});		
+			});
+		</script>
+	</head>
+	<body>
+		<div id="div-1">
+			<img src="img/1.jpg"/>
+			<img src="img/2.jpg"/>
+		</div>
+		<div class="showImg">
+			<img src="img/1.jpg"/>
+		</div>
+	</body>
+</html>

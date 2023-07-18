@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>v-if条件指令</title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<!-- 1.v-if指令 -->
+			<h1 v-if="awesome">显示</h1>
+			<!-- 2.v-else指令来表示 v-if的"else"块，v-else 元素必须紧跟在带 v-if 或者 v-else-if 的元素的后面，否则它将不会被识别。 -->
+			<h1 v-else>不显示</h1>
+			
+			<!-- 3.用v-else-if指令来充当 v-if 的“else-if 块”，可以连续使用，v-else-if 也必须紧跟在带 v-if 或者 v-else-if 的元素之后。 -->
+			<h2 v-if="type === 'A'">A</h2>
+			<h2 v-else-if="type === 'B'">B</h2>
+			<h2 v-else-if="type === 'C'">C</h2>
+			<h2 v-else>非ABC</h2>
+		</div>
+	</body>
+	<script>
+		var app = new Vue({
+			el: "#app",
+			data:{
+				awesome:true,
+				type: 'A'
+			}
+		});
+		
+	</script>
+</html>

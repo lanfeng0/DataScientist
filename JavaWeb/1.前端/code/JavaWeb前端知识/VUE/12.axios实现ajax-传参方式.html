@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>axios实现vue的ajax请求</title>
+		<!-- 引入vue -->
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<!-- 引入axios -->
+		<script src="https://cdn.staticfile.org/axios/0.18.0/axios.min.js"></script>
+		<!-- 引入Qs，解决post参数问题 -->
+		<script src="https://cdn.bootcss.com/qs/6.5.1/qs.min.js"></script>
+
+	</head>
+	<body>
+		<div id="app">
+			<h1>{{message}}</h1>
+			<button @click="sendAxios1">发送axios-get请求-键值对参数形式传递</button>
+			<button @click="sendAxios2">发送axios-post请求-默认JSON形式传递</button>
+			<button @click="sendAxios3">发送axios-post请求-使用Qs转换成键值对参数形式传递</button>
+			<table border="1">
+				<tr>
+					<th>学号</th>
+					<th>姓名</th>
+					<th>年龄</th>
+					<th>邮箱</th>
+				</tr>
+				<tr v-for="student in studentList">
+					<td>{{ student.id }}</td>
+					<td>{{ student.name }}</td>
+					<td>{{ student.age }}</td>
+					<td>{{ student.email }}</td>
+				</tr>
+			</table>
+		</div>
+	</body>
+	<script type="text/javascript">
+		// 创建实例
+		var app = new Vue({
+			el: "#app",
+			data: {
+				message: "axios实现ajax请求",
+				studentList: [{
+					id: 1,
+					name: 'XXX',
+					age: 18,
+					email: 'XXXX'
+				}]
+			},
+			methods: {
+				sendAxios1:function(){
+					// 发送axios请求，请求方法别名
+					// axios.get(url[,options]);
+					axios.get("http://rap2api.taobao.org/app/mock/238982/students",{
+						params:{ // 即将与请求一起发送的 URL 参数  即get请求携带参数方式
+							p1:"p1",
+							p2:"p2"
+						},
+						responseType: 'json', // 表示服务器响应的数据类型 default
+						responseEncoding: 'utf8' // 表示服务器响应的编码格式 default
+					}).then(response=>{
+						this.studentList = response.data.students;
+					}).catch(error=>{
+						alert("axios fail!");
+					});
+				},
+				sendAxios2: function() {
+					// axios([options]) .then() .catch()
+					axios({
+						url: "http://rap2api.taobao.org/app/mock/238982/students",
+						method: "post",
+						// `data` 是作为请求主体被发送的数据
+						// 只适用于这些请求方法 'PUT', 'POST', 和 'PATCH'
+						// 默认情况下，axios-post请求将JavaScript对象序列化为JSON。 
+						data:{
+							p1:"p1",
+							p2:"p2"
+						},
+					}).then(response => {
+						this.info = response.data.data
+					}).catch(error => {
+						alert("axios异步请求失败!");
+					});
+				},
+				sendAxios3: function() {
+					// axios([options]) .then() .catch()
+					axios({
+						url: "http://rap2api.taobao.org/app/mock/238982/students",
+						method: "post",
+						// `headers` 是即将被发送的自定义请求头
+						//  axios-post请求,请求头的content-type默认是"application/json"
+						headers: {
+							 "Content-Type":"application/x-www-form-urlencoded"
+						},
+						// `data` 是作为请求主体被发送的数据
+						// 只适用于这些请求方法 'PUT', 'POST', 和 'PATCH'
+						// 默认情况下，axios-post请求将JavaScript对象序列化为JSON。 
+						// 要以application / x-www-form-urlencoded格式发送数据
+						// 利用Qs.stringify()方法，将对象序列化成URL的形式，以&进行拼接；
+						data:Qs.stringify({
+							p1:"p1",
+							p2:"p2"
+						}),
+					}).then(response => {
+						this.info = response.data.data
+					}).catch(error => {
+						alert("axios异步请求失败!");
+					});
+				}
+			}
+		})
+	</script>
+</html>

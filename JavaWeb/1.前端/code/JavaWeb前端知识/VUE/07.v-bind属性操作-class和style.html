@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>v-bind样式属性操作</title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<style>
+			.active {
+				color:#ff0000;
+			}
+
+			.bgcolor {
+				background-color: #ccc;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<!-- ### style和class属性用法： -->
+			<!-- 1.绑定class -->
+			<span :class="{active:isActive,bgcolor:isBgcolor}">文本内容</span>
+			<!-- 2.绑定内联样式 -->
+			<!-- v-bind:style 的对象语法十分直观——看着非常像 CSS，但其实是一个 JavaScript 对象 -->
+			<div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }">绑定内联样式</div>
+			<!-- 直接绑定到一个样式对象通常更好，这会让模板更清晰： -->
+			<div v-bind:style="styleObject">绑定内联样式</div>
+		</div>
+	</body>
+	<script>
+		// 创建一个vue实例
+		var app = new Vue({
+			// 格式: key:value,
+			el: "#app", // 绑定一个页面已经存在的DOM元素作为vue挂载目标
+			data: { // vue实例的数据对象			
+				isActive:true,
+				isBgcolor:true,
+				activeColor: 'red',
+				fontSize: 30,
+				styleObject: {
+				    color: 'red',
+				    fontSize: '13px'
+				}
+			}
+		})
+	</script>
+</html>

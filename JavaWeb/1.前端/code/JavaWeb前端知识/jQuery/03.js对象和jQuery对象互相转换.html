@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>js对象和jQuery对象互相转换</title>
+		<script src="js/jquery-3.5.1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			
+			$(document).ready(function(){
+				
+
+				// 获取一个js对象
+				var dom = document.getElementById("h");
+				// 通过js方式获取文本值
+				console.log(dom.innerText);
+				
+				// 将JavaScript对象转换成jQuery对象：使用美元符号()进行包装 $(DOM)
+				var $obj = $(dom);
+				// 通过jQuery方式获取文本值
+				console.log($obj.text());
+				
+			    // 获取一个jQuery对象
+				var $obj2 = $('#h-2');
+				console.log($obj2.text());
+				
+				// 将jQuery对象转换成JavaScript对象：通过jQuery对象的get(0)方法				
+				var dom = $('#h-2').get(0);
+				console.log(dom.innerText);
+				
+				
+				console.log("====this关键字====");
+				// this和$(this)区别
+				// this是js对象
+				// $(this)是jQuery对象
+				
+				// js对列表li绑定事件，获取点击的li的文本
+				var lis = document.getElementById("ul-1").getElementsByTagName("li");
+				// 遍历
+				for(var i = 0; i < lis.length; i++){
+					lis[i].onclick = function(){
+						console.log("点击的文本：" + this.innerText);
+					}
+				}
+				
+				// jQuery对列表li绑定事件，获取点击的li的文本
+				$('#ul-2 li').click(function(){
+					console.log("点击的文本：" + $(this).text());
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<h1 id="h">标题h1</h1>
+		<h2 id="h-2">标题h2</h2>
+		
+		<hr />
+		<ul id="ul-1">
+			<li>列表1</li><li>列表2</li><li>列表3</li>
+		</ul>
+		<ul id="ul-2">
+			<li>列表A</li><li>列表B</li><li>列表C</li>
+		</ul>
+	</body>
+</html>

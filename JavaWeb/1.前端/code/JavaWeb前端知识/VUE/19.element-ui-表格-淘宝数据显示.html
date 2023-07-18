@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>表格</title>
+		<!-- 引入vue.js -->
+		<script src="./js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<!-- 引入axios -->
+		<script src="https://cdn.staticfile.org/axios/0.18.0/axios.min.js"></script>
+		<!-- 引入Qs，解决post跨域问题 -->
+		<script src="https://cdn.bootcss.com/qs/6.5.1/qs.min.js"></script>
+		<!-- 引入element-ui样式 -->
+		<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+		<!-- 引入element-ui组件库 -->
+		<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<el-table :data="tableData" border style="width: 100%">
+				<el-table-column prop="id" label="学号" width="180">
+				</el-table-column>
+				<el-table-column prop="name" label="姓名" width="180">
+				</el-table-column>
+				<el-table-column prop="age" label="年龄" width="180">
+				</el-table-column>
+				<el-table-column prop="email" label="邮箱" width="180">
+				</el-table-column>
+				<el-table-column prop="address" label="操作">
+					<el-button type="primary" icon="el-icon-edit" circle></el-button>
+					<el-button type="danger" icon="el-icon-delete" circle></el-button>
+				</el-table-column>
+			</el-table>
+		</div>
+	</body>
+	<script>
+		var app = new Vue({
+			el: "#app",
+			data:{
+				tableData: []
+			},
+			mounted:function(){
+				// 发送axios请求服务器文章数据
+				axios({
+					method:"GET",
+					url:"http://rap2api.taobao.org/app/mock/238982/students"			
+				}).then(response=>{
+					this.tableData = response.data.students;	
+				}).catch(error=>{
+					alert("axios异步请求失败!")
+				})
+			},
+
+		})
+	</script>
+</html>

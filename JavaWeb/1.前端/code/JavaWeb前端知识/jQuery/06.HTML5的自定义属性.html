@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>HTML5的自定义属性</title>
+		<script src="js/jquery-3.5.1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				
+				// attr()获取自定义属性的值
+				var userid = $("#d").attr("data-userid");
+				console.log("自定义属性值:"+ userid); // 2001
+				
+				// attr设置(修改/新增)
+				$("#d").attr("data-userid","2002");
+				$("#d").attr("data-username","陈林");
+				
+				// 删除自定义属性
+				$("#d").removeAttr("data-birthday");
+				
+				// 通过data()专门用来获取通过data-属性名的自定义属性
+				var userid =$("#d").data("userid"); // 只要属性名age,不需要data-age 
+				console.log("自定义属性值:"+ userid);  // 2002
+				
+				// 两种获取自定义属性值的方式
+				// 自定义的属性名应该遵循全小写的规则，否则data()获取不到值
+				var address = $("#d").attr("data-useraddress");
+				console.log("自定义属性值:"+ address); // xm
+				var address =$("#d").data("useraddress"); // 只要属性名age,不需要data-age 
+				console.log("自定义属性值:"+ address);  // xm
+				
+			})
+		</script>
+	</head>
+	<body>
+		<div id="d" data-userid = "2001" data-birthday = "1999-01-01" data-useraddress="xm">
+			在html5中我们可以通过data-来设置我们需要的自定义属性，进行数据存放。
+			<br />
+			自定义的属性名应该全小写。
+		</div>
+	</body>
+</html>

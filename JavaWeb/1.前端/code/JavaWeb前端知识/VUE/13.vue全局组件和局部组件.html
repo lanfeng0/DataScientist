@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>全局组件和局部组件</title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<h1>{{message}}</h1>
+			<!-- 调用全局组件 -->
+			<global-component-a></global-component-a>
+		</div>
+		<hr />
+		<div id="app2">	
+			<h1>{{message}}</h1>
+			<!-- 调用全局组件 -->
+			<global-component-a></global-component-a>
+		</div>
+		<hr />
+		<div id="app3">
+			<h1>{{message}}</h1>
+			<!-- 调用全局组件 -->
+			<global-component-a></global-component-a>
+			<!-- 调用局部组件 -->
+			<component-a></component-a>
+		</div>
+
+	</body>
+	<script>
+		// 注册全局组件,可以被所有new Vue根实例所调用
+		// Vue.component("组件名",options)
+		Vue.component("global-component-a",{
+			// 在组件中 data 必须是一个函数
+			data:function(){  
+				return {
+					// 内部数据属性名:属性值
+					info: '全局组件'
+				}
+			},
+			// 模板：其实就一段复用的HTML片段
+			template:"<div><h3>{{info}}</h3><h4>标题</h4><p>正文1</p><a href=\"\">链接</a></div>"
+		});
+		
+		// 注册局部组件,仅在被定义的根实例中可以调用
+		// 通过一个普通的 JavaScript 对象来定义组件：
+		var ComponentA = {
+			data: function(){
+				return {
+					info: "局部组件"
+				}
+			},
+			// 模板：其实就一段复用的HTML片段
+			template:"<div><h3>{{info}}</h3><ul><li>列表1</li><li>列表1</li><li>列表1</li></ul></div>"
+		}
+		
+		// 创建vue根实例
+		var app = new Vue({
+			el:"#app",
+			data:{
+				message:"vue-1调用全局组件"
+			}
+		});
+		// 创建vue根实例
+		var app2 = new Vue({
+			el:"#app2",
+			data:{
+				message:"vue-2调用全局组件"
+			}
+		});
+		
+		// 创建vue根实例
+		var app3 = new Vue({
+			el:"#app3",
+			data:{
+				message:"vue-3调用全局组件和局部组件"
+			},
+			components:{ // 定义当前根实例的子组件
+				// 自定义组件名：组件对象
+				"component-a": ComponentA
+			}
+		});
+		
+	</script>
+</html>

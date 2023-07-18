@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>v-on事件处理</title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<!-- 1.可以用 v-on 指令监听 DOM 事件，并在触发时运行一些 JavaScript 代码。 -->
+			<button v-on:click="method1()">事件监听1</button>
+			<button v-on:click="method2('参数')">事件监听2</button>
+			<button v-on:click="method3('返回值函数')">事件监听3</button>
+			<button v-on:click="method4()">事件监听4</button>
+			<!-- 2.事件修饰符 .one表示只做一次 -->
+			<button v-on:click.once="method4()">事件监听5-修饰once表示只能执行一次</button>
+			<!-- 3.事件指令v-on缩写  属性指令v-bind缩写-->
+			<button @click="method1()" :id="dymId" >事件监听5-修饰once表示只能执行一次</button>
+	
+		</div>
+	</body>
+	<script>
+		var app = new Vue({
+			el: "#app",
+			data:{
+				// 属性名:属性值(普通数据，对象，数组)
+				dymId: 'E20015',
+				name: 'KING',
+				object: {
+					username: 'Queen',
+					password: '123456'
+				},
+				objects: [
+					{
+						username: 'Queen2',
+						password: '123456'
+					},
+					{
+						username: 'Queen3',
+						password: '123456'
+					}
+				]
+			},
+			methods:{  // 定义vue示例的1到N方法
+				// 方法名: function(参数){...}
+				method1: function(){
+					console.log("method1无参函数");
+				},
+				method2: function(param){
+					console.log("method2有参函数,参数param:" + param);
+				},
+				method3:function(param){
+					console.log("method3有参返回值函数,参数param:" + param);
+					return "返回值";
+				},
+				method4:function(){
+					// 调用当前实例的其他方法  this表示当前实例
+					var result = this.method3("method4调用method3");
+					console.log("result:" + result);
+					// 调用当前实例的data数据
+					console.log("data:" + this.name);
+					console.log("data:" + this.object);
+					console.log("data:" + this.objects);
+				}
+			}
+		});
+		
+		// 直接通过javascript调用vue实例方法
+		var result = app.method3("有返回值函数");
+		console.log("result:" + result)
+	</script>
+</html>

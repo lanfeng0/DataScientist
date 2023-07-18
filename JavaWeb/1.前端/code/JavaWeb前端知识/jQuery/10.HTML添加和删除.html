@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>HTML元素的动态添加和删除</title>
+		<script src="js/jquery-3.5.1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			
+			$(function(){
+				// prepend(内容) - 在被选元素的开头插入内容（内部插入）
+				$("#div-1").prepend("<a href=''>插入的超链接1</a>");
+				
+				// append(内容) - 在被选元素的结尾插入内容（内部插入）
+				$("#div-1").append("<a href=''>插入的超链接2</a>");
+				
+				// prependTo(target) 将匹配的元素插入到目标元素的最前面（译者注：内部插入）。
+				$("<a href=''>插入的超链接3</a>").prependTo("#div-1");
+				
+				// appendTo(target)  将匹配的元素插入到目标元素的最后面（译者注：内部插入）。
+				$("<a href=''>插入的超链接4</a>").appendTo("#div-1");
+				
+				// before(内容) - 在被选元素之前插入内容（外部插入）
+				$("#div-1").before("<h1>插入的标题</h1>");
+				
+				// after() - 在被选元素之后插入内容（外部插入）
+				$("#div-1").after("<h2>插入的标题</h2>");		
+				
+				// remove() - 删除被选元素（及其子元素）
+				$("#div-2").remove();
+				
+				// empty() -  从被选元素中删除子元素
+				$("#div-3").empty();
+				
+			});
+		</script>
+	</head>
+	<body>
+		<div id="div-1">
+			<p>div-p</p>
+		</div>
+		<div id="div-2">
+			<p>div-2-p</p>
+		</div>
+		<div id="div-3">
+			<p>div-3-p</p>
+		</div>
+	</body>
+</html>

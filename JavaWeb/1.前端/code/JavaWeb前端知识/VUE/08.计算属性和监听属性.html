@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>计算属性和监听属性</title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			 <p>{{ message }}</p>
+	         <p>{{ message.split("").reverse().join("") }}</p>
+			 <!-- 你可以像绑定普通 property 一样在模板中绑定计算属性 -->
+			 <!-- 调用计算属性 -->
+			 <p>{{ reverseMessage }}</p>
+			 <!-- 调用方法 -->
+			 <p>{{ reverseMessageMethod() }}</p>
+		</div>
+	</body>
+	<script>
+		var app = new Vue({
+			el: "#app",
+			data:{
+				// 属性名:属性值(普通数据，对象，数组)
+				message: "HELLO"
+			},
+			computed:{  // 计算属性
+			    // 计算属性缓存：计算属性是基于它们的响应式依赖进行缓存的。只在相关响应式依赖发生改变时它们才会重新求值。
+				// 这就意味着只要 message 还没有发生改变，多次访问 reversedMessage 计算属性会立即返回之前的计算结果，而不必再次执行函数。
+				
+				// reverseMessage其实就是一个属性,只是这个属性是通过计算函数得到的值
+				// reverseMessage 计算属性的getter
+				// 格式 属性名:function(){....}
+				reverseMessage: function(){
+					console.log("计算属性.....")
+					return this.message.split("").reverse().join("");
+				}
+			},
+			methods:{  // 定义vue示例的1到N方法
+				// reverseMessageMethod是一个方法名
+				reverseMessageMethod: function(){
+					console.log("调用函数.....")
+					return this.message.split("").reverse().join("");
+				}
+			}
+		});
+		
+	
+	</script>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>前端调试</title>
+		<script type="text/javascript">
+			
+			for(var i = 0; i <=5 ;i++){
+				// 第1种：提示框(不推荐),测试之后该语句必须删除
+				// alert(i);
+			    
+			    // 第2种：控制台输出,测试之后该语句建议删除
+			    console.log(i);
+			    
+			    // 第3种：利用浏览器的source资源进行debug调试
+			    if( i == 3 ){
+			    	t();
+			    }
+			    
+			    // 第4中：debugger语句,测试之后该语句必须删除
+			    debugger;
+			}
+			
+			function t(){
+				// 一系列的操作..
+				// alert("1");
+				console.log("执行t方法..");			
+			}
+			
+			for(var i = 0; i <=5 ;i++){
+				// 第1种：提示框(不推荐),测试之后该语句必须删除
+				// alert(i);
+			    
+			    // 第2种：控制台输出,测试之后该语句建议删除
+			    console.log(i);
+			    
+			    // 第3种：利用浏览器的source资源进行debug调试
+			    if( i == 3 ){
+			    	t();
+			    }
+			}
+			
+			function t2(){
+				// 一系列的操作..
+				// alert("1");
+				console.log("执行t2方法..");
+				console.log("执行t2方法..")
+			}
+		</script>
+	</head>
+	<body>
+		<button id="btn" onclick="t2()">按钮</button>
+	</body>
+</html>

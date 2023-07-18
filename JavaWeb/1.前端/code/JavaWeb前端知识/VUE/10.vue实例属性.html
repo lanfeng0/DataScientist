@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		
+	</head>
+	<body>
+		<div id="app">
+			
+		</div>
+		<script type="text/javascript">
+				var vm = new Vue({
+					el:"#app", // 挂载点，可认为是element的简写，创建一个vue实例得知道是在哪一块元素上创建Vue实例，对哪一块视图进行操作
+					data:{},   // 又称内部数据，该属性值可以是对象，也可以是函数，但优先推荐使用函数，对象里的函数又称方法。
+					          //  并且若是组件中的data则必须使用函数。数据成员,在.vue组件中data是一个函数，要写成data () {}这种方式	
+					props:{} // 又称外部数据，一般用于组件中接受外来传递的数据，在组件使用时，通过标签全局属性的方式进行传参
+					computed:{ // 计算属性
+						// 计算属性名: function(){..}
+					},
+					watch:{ // 监视属性
+						
+					},
+					methods:{ // 成员方法
+						// 方法名: function(){..}
+					},
+					template: ""// 模板
+					beforeCreate:function(){ // 生命构造函数，还有其他7个...
+						
+					},
+					compontents:{
+						
+					},
+					// 其他option....
+				})
+		</script>
+	
+	</body>
+</html>
