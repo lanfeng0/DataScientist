@@ -37,7 +37,7 @@
    - 数据库优化.md
    - JDBC.md
   
-3. JavaWeb目录存放第三阶段相关学习资料，里面的前端部分是关于开发Web项目中用到HTML相关知识以及代码案例，JavaEE目录中存放相关学习资料，其中JavaEEDemo是相关案例，用的Eclipse项目结构，Git是版本控制相关学习资料
+3. JavaWeb目录存放第三阶段相关学习资料，里面的前端部分是关于开发Web项目中用到HTML相关知识以及代码案例，JavaEE目录中存放相关学习资料，其中JavaEEDemo是相关案例，用的Eclipse项目结构，Git是版本控制相关学习资料（建议学习时间27-48天）
    - 01章-Web快速入门
    - 02章-Servlet入门
    - 03章-JSP入门
