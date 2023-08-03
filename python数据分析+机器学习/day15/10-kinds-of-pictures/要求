@@ -1,0 +1,5 @@
+总共有6万个数据，其中五万是训练数据，一万是测试数据
+总共有10中类型图片分别是：'airplane', 'automobile', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck'
+需要使用pickle进行原始数据的读取
+我们当前包下有个Jupyter文件：事物识别.ipynp，这个文件演示了如何从data_batch_x中读取数据
+我们要做机器学习，使用五万数据训练我们的机器学习模型，然后使用机器学习模型测试我们的测试数据
