@@ -1,0 +1,23 @@
+1.安装zookeeper
+2.修改spark-env.sh（3台都要修改）
+export SPARK_DAEMON_JAVA_OPTS="-Dspark.deploy.recoveryMode=ZOOKEEPER -Dspark.deploy.zookeeper.url=h251:2181,h252:2181,h253:2181 -Dspark.deploy.zookeeper.dir=/spark"
+
+export SPARK_DAEMON_JAVA_OPTS="-Dspark.deploy.recoveryMode=ZOOKEEPER -Dspark.deploy.zookeeper.url=node02:2181,node03:2181,node04:2181 -Dspa rk.deploy.zookeeper.dir=/spark"
+
+-Dspark.deploy.recoveryMode：    表明整个集群的恢复和维护都是Zookeeper.
+-Dspark.deploy.zookeeper.url:   所有做HA机器，其中端口2181是默认端口。
+-Dspark.deploy.zookeeper.dir：   指定Spark在Zookeeper注册的信息
+
+3.从节点启动master进程
+到Worker1和Worker2上手动启动Master.
+[hadoop@h253 spark2.1]$ sbin/start-master.sh 
+
+4.验证
+3台节点都浏览器登录 8080，webUI
+查看状态
+h251 为alive
+h252 为standby
+h253 为standby
+
+kill h251 master进程
+观察h252 更改为 alive
